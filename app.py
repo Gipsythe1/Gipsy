@@ -159,5 +159,15 @@ elif page == "Trading Academy (3-Month Roadmap)":
         "M3 W12: Building a Master Trading Plan": {
             "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
             "questions": [
-                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue", "To decorate desk", "To satisfy bank loans", "To predict future"], "answer": "To serve as an objective rulebook removing real-time decision fatigue"},
-                {"question": "What should a pre-market routine include?", "options": ["Reviewing macro news, checking key levels, and setting daily risk limits", "Sleeping until noon", "Placing random trades", "Checking social media"
+                {
+                    "question": "What is the purpose of a written Trading Plan?",
+                    "options": [
+                        "To serve as an objective rulebook removing real-time decision fatigue",
+                        "To decorate desk",
+                        "To satisfy bank loans",
+                        "To predict future"
+                    ],
+                    "answer": "To serve as an objective rulebook removing real-time decision fatigue"
+                },
+                {
+                   
