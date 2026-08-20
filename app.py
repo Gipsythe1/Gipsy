@@ -2,28 +2,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-# Page Configuration
-st.set_page_config(
-    page_title="TradeX - 3-Month Trading Academy",
-    page_icon="📈",
-    layout="wide"
-)
+st.set_page_config(page_title="TradeX - 3-Month Trading Academy", page_icon="📈", layout="wide")
 
-# Initialize Session State
-if "xp" not in st.session_state:
-    st.session_state.xp = 150
-if "hearts" not in st.session_state:
-    st.session_state.hearts = 5
-if "streak" not in st.session_state:
-    st.session_state.streak = 3
-if "active_lesson" not in st.session_state:
-    st.session_state.active_lesson = None
-if "question_index" not in st.session_state:
-    st.session_state.question_index = 0
-if "completed_lessons" not in st.session_state:
-    st.session_state.completed_lessons = set()
+if "xp" not in st.session_state: st.session_state.xp = 150
+if "hearts" not in st.session_state: st.session_state.hearts = 5
+if "streak" not in st.session_state: st.session_state.streak = 3
+if "active_lesson" not in st.session_state: st.session_state.active_lesson = None
+if "question_index" not in st.session_state: st.session_state.question_index = 0
+if "completed_lessons" not in st.session_state: st.session_state.completed_lessons = set()
 
-# Custom Styling
 st.markdown("""
     <style>
     .stApp { background-color: #131722; color: #d1d4dc; }
@@ -33,7 +20,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation
 st.sidebar.markdown("## TRADE<span style='color: #2962ff;'>X</span>", unsafe_allow_html=True)
 page = st.sidebar.radio("Navigation", ["Dashboard", "Trading Academy (3-Month Roadmap)", "Global Scoreboard", "Markets", "Paper Trading"])
 
@@ -41,36 +27,24 @@ if page == "Dashboard":
     st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>WELCOME BACK</p>", unsafe_allow_html=True)
     st.title("Trading Dashboard")
     
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Portfolio Value</p><h2 style="margin: 0; color: #ffffff;">$10,000.00</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
-    with col2:
-        st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Today\'s Profit</p><h2 style="margin: 0; color: #ffffff;">$245.60</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
-    with col3:
-        st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
+    c1, c2, c3 = st.columns(3)
+    c1.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Portfolio Value</p><h2 style="margin: 0; color: #ffffff;">$10,000.00</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
+    c2.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Today\'s Profit</p><h2 style="margin: 0; color: #ffffff;">$245.60</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
+    c3.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
 
     st.write("")
     chart_col, watch_col = st.columns([3, 1])
     with chart_col:
-        st.markdown("### BTC / USD")
-        st.markdown("## $68,420.50")
-        chart_data = pd.DataFrame(np.random.randn(50, 1).cumsum() + 68420, columns=["Price"])
-        st.line_chart(chart_data, color="#2962ff", height=350)
+        st.markdown("### BTC / USD\n## $68,420.50")
+        st.line_chart(pd.DataFrame(np.random.randn(50, 1).cumsum() + 68420, columns=["Price"]), color="#2962ff", height=350)
     with watch_col:
         st.markdown("### Watchlist")
         for asset, price in {"BTC": "$68,420", "ETH": "$3,420", "AAPL": "$227.10", "TSLA": "$341.20"}.items():
             st.markdown(f'<div style="background: #1e222d; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between;"><b>{asset}</b><span style="color: #848e9c;">{price}</span></div>', unsafe_allow_html=True)
 
 elif page == "Trading Academy (3-Month Roadmap)":
-    st.markdown(f"""
-        <div class="duo-stats">
-            <span>🔥 Streak: {st.session_state.streak} Days</span>
-            <span>⚡ XP: {st.session_state.xp}</span>
-            <span>❤️ Hearts: {'❤️' * st.session_state.hearts}</span>
-        </div>
-    """, unsafe_allow_html=True)
+    st.markdown(f'<div class="duo-stats"><span>🔥 Streak: {st.session_state.streak} Days</span><span>⚡ XP: {st.session_state.xp}</span><span>❤️ Hearts: {"❤️" * st.session_state.hearts}</span></div>', unsafe_allow_html=True)
 
-    # Clean 3-Month Curriculum Dictionary
     lessons_db = {
         "M1 W1: Market Mechanics & Orders": {
             "concept": "Mastering order books, market makers, spreads, and leverage mechanics.",
@@ -185,4 +159,5 @@ elif page == "Trading Academy (3-Month Roadmap)":
         "M3 W12: Building a Master Trading Plan": {
             "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
             "questions": [
-                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue", "To decorate desk", "To satisfy ban
+                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue", "To decorate desk", "To satisfy bank loans", "To predict future"], "answer": "To serve as an objective rulebook removing real-time decision fatigue"},
+                {"question": "What should a pre-market routine include?", "options": ["Reviewing macro news, checking key levels, and setting daily risk limits", "Sleeping until noon", "Placing random trades", "Checking social media"
