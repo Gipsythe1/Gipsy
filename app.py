@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Initialize Session State
+# Initialize Session State Variables safely
 if "xp" not in st.session_state:
     st.session_state.xp = 150
 if "hearts" not in st.session_state:
@@ -23,8 +23,10 @@ if "question_index" not in st.session_state:
     st.session_state.question_index = 0
 if "completed_lessons" not in st.session_state:
     st.session_state.completed_lessons = set()
+if "feedback" not in st.session_state:
+    st.session_state.feedback = None
 
-# Custom Styling
+# Custom Modern Styling
 st.markdown("""
     <style>
     .stApp {
@@ -95,41 +97,58 @@ elif page == "Trading Academy (3-Month Roadmap)":
         </div>
     """, unsafe_allow_html=True)
 
-    st.subheader("Curriculum")
-    
-    cols = st.columns(3)
-    for i, (lesson_name, lesson_data) in enumerate(lessons_db.items()):
-        col = cols[i % 3]
-        if col.button(lesson_name, key=f"btn_{i}"):
-            st.session_state.active_lesson = lesson_name
-            st.session_state.question_index = 0
-            st.rerun()
-
-    if st.session_state.active_lesson:
+    if st.session_state.active_lesson is None:
+        st.subheader("Curriculum Roadmap")
+        cols = st.columns(3)
+        for i, (lesson_name, lesson_data) in enumerate(lessons_db.items()):
+            col = cols[i % 3]
+            is_completed = lesson_name in st.session_state.completed_lessons
+            button_label = f"✅ {lesson_name}" if is_completed else lesson_name
+            
+            if col.button(button_label, key=f"btn_{i}"):
+                st.session_state.active_lesson = lesson_name
+                st.session_state.question_index = 0
+                st.session_state.feedback = None
+                st.rerun()
+    else:
         lesson = lessons_db[st.session_state.active_lesson]
         st.markdown(f"## {st.session_state.active_lesson}")
-        st.info(f"**Concept:** {lesson['concept']}")
+        st.info(f"**Concept Focus:** {lesson['concept']}")
         
         q_idx = st.session_state.question_index
         if q_idx < len(lesson['questions']):
             q = lesson['questions'][q_idx]
-            st.markdown(f'<div class="quiz-box"><h4>{q["question"]}</h4>', unsafe_allow_html=True)
+            st.markdown(f'<div class="quiz-box"><h4>Question {q_idx + 1} of {len(lesson["questions"])}</h4><p style="font-size: 1.1em; font-weight: 500;">{q["question"]}</p>', unsafe_allow_html=True)
             
-            choice = st.radio("Select an answer:", q['options'], key=f"q_{q_idx}")
-            if st.button("Submit Answer"):
-                if choice == q['answer']:
-                    st.success("Correct!")
-                    st.session_state.xp += 10
+            choice = st.radio("Select an option:", q['options'], key=f"q_{q_idx}")
+            
+            # Action controls depending on whether user submitted yet
+            if st.session_state.feedback is None:
+                if st.button("Submit Answer", type="primary"):
+                    if choice == q['answer']:
+                        st.session_state.feedback = ("correct", q['answer'])
+                        st.session_state.xp += 10
+                    else:
+                        st.session_state.feedback = ("wrong", q['answer'])
+                        st.session_state.hearts = max(0, st.session_state.hearts - 1)
+                    st.rerun()
+            else:
+                status, correct_ans = st.session_state.feedback
+                if status == "correct":
+                    st.success("✅ **Correct!** Great deduction.")
                 else:
-                    st.error(f"Wrong. The correct answer was: {q['answer']}")
-                    st.session_state.hearts -= 1
+                    st.error(f"❌ **Incorrect.** The correct answer was: **{correct_ans}**")
                 
-                st.session_state.question_index += 1
-                st.rerun()
+                if st.button("Next Question ➔", type="primary"):
+                    st.session_state.feedback = None
+                    st.session_state.question_index += 1
+                    st.rerun()
+                    
             st.markdown('</div>', unsafe_allow_html=True)
         else:
-            st.success("Lesson Complete!")
+            st.success("🎉 **Lesson Complete!** You've mastered this module and earned bonus XP.")
             st.session_state.completed_lessons.add(st.session_state.active_lesson)
+            st.session_state.feedback = None
             if st.button("Return to Roadmap"):
                 st.session_state.active_lesson = None
                 st.rerun()
@@ -156,4 +175,4 @@ elif page == "Paper Trading":
     amount = st.number_input("Amount", 100, 10000)
     if st.button("Execute Trade"):
         st.write(f"Simulated order placed for {amount} of {ticker}")
-                                                   
+                        
