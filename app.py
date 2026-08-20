@@ -71,7 +71,7 @@ if page == "Dashboard":
     with col2:
         st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Today\'s Profit</p><h2 style="margin: 0; color: #ffffff;">$245.60</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
+        st.markdown('<div class="metric-card"><p style="color: &848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
 
     st.write("")
     chart_col, watch_col = st.columns([3, 1])
@@ -94,11 +94,11 @@ elif page == "Trading Academy (3-Month Roadmap)":
         </div>
     """, unsafe_allow_html=True)
 
-    # 3-Month Curriculum Structured by Weeks & Days
+    # Full 3-Month Curriculum (Months 1, 2, and 3) Structured by Weeks
     lessons_db = {
-        # Month 1, Week 1
+        # ==================== MONTH 1: MARKET MECHANICS & PRICE ACTION ====================
         "M1 W1 D1: Bid-Ask Spreads": {
-            "concept": "Order books, market makers, and liquidity.",
+            "concept": "Order books, market makers, and liquidity mechanics.",
             "questions": [
                 {"question": "What is the primary role of a Market Maker?", "options": ["Crash price", "Provide liquidity", "Charge high taxes", "Print money"], "answer": "Provide liquidity"},
                 {"question": "What term describes the gap between buyers and sellers?", "options": ["Leverage Ratio", "Bid-Ask Spread", "Dividend Yield", "Slippage Fee"], "answer": "Bid-Ask Spread"},
@@ -107,47 +107,6 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "What is market depth?", "options": ["Ocean depth", "Volume of pending orders", "Account balance", "Leverage limit"], "answer": "Volume of pending orders"}
             ]
         },
-        "M1 W1 D2: Market vs Limit Orders": {
-            "concept": "Execution speed versus price precision.",
-            "questions": [
-                {"question": "Which order guarantees execution speed?", "options": ["Limit Order", "Market Order", "Stop-Loss", "GTC Order"], "answer": "Market Order"},
-                {"question": "What is a Limit Order used for?", "options": ["Instant execution", "Specifying exact target price", "Closing account", "Avoiding taxes"], "answer": "Specifying exact target price"},
-                {"question": "What is slippage?", "options": ["Ice on chart", "Difference between expected and execution price", "Broker bonus", "Platform crash"], "answer": "Difference between expected and execution price"},
-                {"question": "When should you prefer a Limit Order?", "options": ["Low liquidity or avoiding slippage", "During panic crash", "Never", "100x leverage"], "answer": "Low liquidity or avoiding slippage"},
-                {"question": "What does IOC mean?", "options": ["Cancel account", "Execute immediately or cancel", "Ignore conditions", "Infinite orders"], "answer": "Execute immediately or cancel"}
-            ]
-        },
-        "M1 W1 D3: Stop Orders": {
-            "concept": "Conditional trigger orders for risk control.",
-            "questions": [
-                {"question": "What triggers a Stop-Loss?", "options": ["Price reaching trigger price", "Manual click", "Random timer", "Volume drop"], "answer": "Price reaching trigger price"},
-                {"question": "What is a Stop-Limit order?", "options": ["Turns into limit order when triggered", "Permanent ban", "Free trade", "Market order"], "answer": "Turns into limit order when triggered"},
-                {"question": "Why use a Stop-Loss?", "options": ["Limit potential trading losses automatically", "Guarantee profit", "Increase fees", "Double margin"], "answer": "Limit potential trading losses automatically"},
-                {"question": "Can a Stop-Limit order fail?", "options": ["Never", "Yes, if price moves past limit too fast", "Only weekends", "Only crypto"], "answer": "Yes, if price moves past limit too fast"},
-                {"question": "What is a Trailing Stop?", "options": ["Tracks favorable price movement", "Lagging indicator", "Fixed floor", "Market exit"], "answer": "Tracks favorable price movement"}
-            ]
-        },
-        "M1 W1 D4: Margin & Leverage": {
-            "concept": "Amplifying position exposure with borrowed capital.",
-            "questions": [
-                {"question": "What is leverage?", "options": ["Borrowing funds to increase position size", "Physical tool", "Tax penalty", "Chart type"], "answer": "Borrowing funds to increase position size"},
-                {"question": "What is a Margin Call?", "options": ["Phone call", "Demand to add collateral funds", "Winning prize", "Closing trade"], "answer": "Demand to add collateral funds"},
-                {"question": "What happens with 10x leverage on a 10% adverse move?", "options": ["Break even", "Liquidation (total loss)", "Double money", "Nothing"], "answer": "Liquidation (total loss)"},
-                {"question": "What is initial margin?", "options": ["Collateral required to open position", "Free money", "Broker fee", "Profit target"], "answer": "Collateral required to open position"},
-                {"question": "Is high leverage recommended for beginners?", "options": ["Always", "No, it destroys accounts", "Fridays", "Stocks only"], "answer": "No, it destroys accounts"}
-            ]
-        },
-        "M1 W1 D5: Exchange Architecture": {
-            "concept": "Centralized vs decentralized exchange mechanics.",
-            "questions": [
-                {"question": "What is a CEX?", "options": ["Company-managed order matching platform", "P2P network", "Bank vault", "Chart pattern"], "answer": "Company-managed order matching platform"},
-                {"question": "What is a DEX?", "options": ["Smart contract exchange on blockchain", "Physical floor", "Closed DB", "Stock broker"], "answer": "Smart contract exchange on blockchain"},
-                {"question": "What does T+1 settlement mean?", "options": ["Trades settle one day after execution", "One year", "Instant cash", "Zero settlement"], "answer": "Trades settle one day after execution"},
-                {"question": "What is counterparty risk?", "options": ["Risk that party or exchange fails to fulfill", "Market volatility", "Slippage", "Spread cost"], "answer": "Risk that party or exchange fails to fulfill"},
-                {"question": "What is cold storage?", "options": ["Refrigerator", "Offline wallet security", "Trading strategy", "Downturn"], "answer": "Offline wallet security"}
-            ]
-        },
-        # Additional Month 1 Weeks (2, 3, 4) & Months 2-3 summarized
         "M1 W2 D1: Support Floors": {
             "concept": "Finding historical price levels where buying occurs.",
             "questions": [
@@ -178,113 +137,81 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "How to trade uptrends?", "options": ["Buy pullbacks near support", "Sell green", "100x short", "Never"], "answer": "Buy pullbacks near support"}
             ]
         },
-        "Month 2, Week 5: Moving Averages": {
-            "concept": "SMA, EMA, and cross indicators.",
+
+        # ==================== MONTH 2: TECHNICAL INDICATORS & OSCILLATORS ====================
+        "M2 W5 D1: Simple vs Exponential Moving Averages": {
+            "concept": "Mastering SMA and EMA calculations and smoothing.",
             "questions": [
-                {"question": "Key difference with EMA?", "options": ["Weights recent prices more", "Crypto only", "Lags more", "No difference"], "answer": "Weights recent prices more"},
-                {"question": "What is a Golden Cross?", "options": ["Short MA crosses above long MA", "Price drop", "Tax rule", "Pattern"], "answer": "Short MA crosses above long MA"},
-                {"question": "What does a Death Cross signify?", "options": ["Bearish momentum", "Bull run", "Close", "High volume"], "answer": "Bearish momentum"},
-                {"question": "How do traders use MAs?", "options": ["Dynamic support and resistance", "Predict exact prices", "Taxes", "Decoration"], "answer": "Dynamic support and resistance"},
-                {"question": "Common pitfall in choppy markets?", "options": ["False whipsaw signals", "Break screens", "Zero data", "High fees"], "answer": "False whipsaw signals"}
+                {"question": "What is the core difference between SMA and EMA?", "options": ["EMA weights recent prices heavier", "SMA is only for stocks", "EMA has no lag", "No difference"], "answer": "EMA weights recent prices heavier"},
+                {"question": "Why do traders use the 200-day moving average?", "options": ["As a long-term macro trend filter", "To calculate daily taxes", "To pick exact bottoms", "For fun"], "answer": "As a long-term macro trend filter"},
+                {"question": "What is a Moving Average crossover signal?", "options": ["When a fast MA crosses a slow MA", "Broker system crash", "Market closure", "Zero volume"], "answer": "When a fast MA crosses a slow MA"},
+                {"question": "What is a Death Cross?", "options": ["50 SMA crossing below 200 SMA", "Price dropping to zero", "Account liquidation", "Option expiry"], "answer": "50 SMA crossing below 200 SMA"},
+                {"question": "What is the main drawback of Moving Averages?", "options": ["They lag behind current price action", "They predict the future", "They cost high fees", "They never work"], "answer": "They lag behind current price action"}
             ]
         },
-        "Month 3, Week 11: Trading Journals": {
-            "concept": "Tracking win rates and expectancy.",
+        "M2 W6 D1: Relative Strength Index (RSI)": {
+            "concept": "Evaluating overbought and oversold momentum conditions.",
             "questions": [
-                {"question": "Why keep a journal?", "options": ["Log mistakes and analyze edge", "Show friends", "Tax", "Pass time"], "answer": "Log mistakes and analyze edge"},
-                {"question": "What is Expectancy?", "options": ["Average amount won/lost per dollar risked", "Mood", "Daily goal", "Return"], "answer": "Average amount won/lost per dollar risked"},
-                {"question": "Can 40% win rate be profitable?", "options": ["Yes, with high risk-reward ratio", "No, must be 100%", "Forex only", "Never"], "answer": "Yes, with high risk-reward ratio"},
-                {"question": "What metric measures plan compliance?", "options": ["Plan Adherence Score", "Balance alone", "Speed", "Count"], "answer": "Plan Adherence Score"},
-                {"question": "How often to review logs?", "options": ["Weekly or monthly", "Every 10 years", "Never", "Bankruptcy"], "answer": "Weekly or monthly"}
+                {"question": "What does an RSI reading above 70 typically indicate?", "options": ["Overbought conditions with potential pullback risk", "Oversold extreme buy", "Market crash", "Zero volatility"], "answer": "Overbought conditions with potential pullback risk"},
+                {"question": "What is RSI divergence?", "options": ["Price making higher highs while RSI makes lower highs", "Price matching RSI", "Broker glitch", "Margin call"], "answer": "Price making higher highs while RSI makes lower highs"},
+                {"question": "What is the standard RSI lookback period?", "options": ["14 periods", "100 periods", "1 period", "50 periods"], "answer": "14 periods"},
+                {"question": "Can an asset stay overbought for a long time during strong trends?", "options": ["Yes, strong trends defy standard RSI thresholds", "No, it must crash instantly", "Only on weekends", "Never"], "answer": "Yes, strong trends defy standard RSI thresholds"},
+                {"question": "What does RSI measure?", "options": ["Magnitude of recent price changes to evaluate velocity", "Trading volume", "Account balance", "Leverage ratio"], "answer": "Magnitude of recent price changes to evaluate velocity"}
             ]
-        }
-    }
+        },
+        "M2 W7 D1: MACD & Momentum Convergence": {
+            "concept": "Moving Average Convergence Divergence histogram analysis.",
+            "questions": [
+                {"question": "What does MACD stand for?", "options": ["Moving Average Convergence Divergence", "Market Asset Cash Distributor", "Margin Asset Calculation Device", "Moving Action Currency Direction"], "answer": "Moving Average Convergence Divergence"},
+                {"question": "What generates a bullish MACD crossover signal?", "options": ["MACD line crosses above the signal line", "MACD equals zero", "Volume disappears", "Price drops"], "answer": "MACD line crosses above the signal line"},
+                {"question": "What does the MACD histogram measure?", "options": ["The distance between the MACD line and signal line", "Total exchange volume", "Open interest", "Account profit"], "answer": "The distance between the MACD line and signal line"},
+                {"question": "How is the baseline MACD line calculated?", "options": ["Difference between 12-period EMA and 26-period EMA", "Simple average of volume", "High minus low", "Close divided by open"], "answer": "Difference between 12-period EMA and 26-period EMA"},
+                {"question": "What indicates decreasing momentum on the MACD histogram?", "options": ["Bars shrinking toward the zero line", "Bars growing infinitely", "Color staying constant", "Zero lines moving"], "answer": "Bars shrinking toward the zero line"}
+            ]
+        },
+        "M2 W8 D1: Bollinger Bands & Volatility Squeezes": {
+            "concept": "Using standard deviation envelopes to trade breakouts.",
+            "questions": [
+                {"question": "What do Bollinger Bands consist of?", "options": ["A middle SMA and upper/lower standard deviation bands", "Three resistance lines", "Random indicators", "Volume bars"], "answer": "A middle SMA and upper/lower standard deviation bands"},
+                {"question": "What is a Bollinger Band 'Squeeze'?", "options": ["Bands narrowing significantly due to low volatility compression", "Bands expanding", "Broker freezing account", "Margin call"], "answer": "Bands narrowing significantly due to low volatility compression"},
+                {"question": "What usually follows a tight volatility squeeze?", "options": ["An explosive directional breakout move", "Market closure", "Zero volume forever", "Tax payment"], "answer": "An explosive directional breakout move"},
+                {"question": "What does it mean when price hugs the upper Bollinger Band?", "options": ["Strong bullish momentum", "Extreme weakness", "Market crash", "Flat range"], "answer": "Strong bullish momentum"},
+                {"question": "How are Bollinger Band standard deviations typically set?", "options": ["2 standard deviations from the 20-period SMA", "1 standard deviation from 10 SMA", "5 standard deviations", "No standard deviation"], "answer": "2 standard deviations from the 20-period SMA"}
+            ]
+        },
 
-    if st.session_state.active_lesson is None:
-        st.title("🎯 3-Month Masterclass Curriculum Roadmap")
-        st.write("Complete daily modules to master market mechanics, price action, and trading psychology.")
-        
-        total_lessons = len(lessons_db)
-        completed_count = len(st.session_state.completed_lessons)
-        progress_val = completed_count / total_lessons if total_lessons > 0 else 0
-        
-        st.markdown(f"### Overall Academy Progress ({completed_count}/{total_lessons} Modules Completed)")
-        st.progress(progress_val)
-        st.markdown("---")
-        
-        for lesson_title, data in lessons_db.items():
-            col1, col2 = st.columns([4, 1])
-            with col1:
-                is_done = lesson_title in st.session_state.completed_lessons
-                status_icon = "✅ " if is_done else "🔒 "
-                st.markdown(f"### {status_icon}{lesson_title}")
-                st.write(data["concept"])
-            with col2:
-                btn_label = "Review 🔄" if is_done else "Start Module 🚀"
-                if st.button(btn_label, key=lesson_title):
-                    st.session_state.active_lesson = lesson_title
-                    st.session_state.question_index = 0
-                    st.rerun()
-            st.markdown("---")
-            
-    else:
-        lesson_key = st.session_state.active_lesson
-        current_lesson = lessons_db[lesson_key]
-        q_idx = st.session_state.question_index
-        total_q = len(current_lesson['questions'])
-        
-        if st.button("⬅️ Back to Roadmap"):
-            st.session_state.active_lesson = None
-            st.session_state.question_index = 0
-            st.rerun()
-            
-        st.title(f"📖 {lesson_key}")
-        st.progress(q_idx / total_q)
-        st.write(f"Question {q_idx + 1} of {total_q}")
-        
-        q_data = current_lesson["questions"][q_idx]
-        
-        st.markdown(f"""
-        <div class="quiz-box">
-            <h4 style="color: #2962ff;">🧩 Challenge</h4>
-            <p style="font-size: 1.1rem; font-weight: bold;">{q_data['question']}</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        user_choice = st.radio("Select your answer:", q_data["options"], key=f"q_{q_idx}")
-        
-        if st.button("Check Answer ✅"):
-            if user_choice == q_data["answer"]:
-                st.success("🎉 Correct! Great job!")
-                st.session_state.xp += 15
-                
-                if q_idx + 1 < total_q:
-                    st.session_state.question_index += 1
-                    st.rerun()
-                else:
-                    st.balloons()
-                    st.success("🏆 Module Completed!")
-                    st.session_state.completed_lessons.add(lesson_key)
-                    st.session_state.active_lesson = None
-                    st.session_state.question_index = 0
-            else:
-                st.error("❌ Incorrect! Try again.")
-                st.session_state.hearts = max(0, st.session_state.hearts - 1)
-
-elif page == "Global Scoreboard":
-    st.title("🏆 TradeX Global Scoreboard")
-    scoreboard_data = pd.DataFrame([
-        {"Rank": 1, "Trader": "CryptoAlpha", "XP": 3450, "Streak": 45},
-        {"Rank": 2, "Trader": "BullishSzn", "XP": 2980, "Streak": 30},
-        {"Rank": 3, "Trader": "You (TradeX User)", "XP": st.session_state.xp, "Streak": st.session_state.streak}
-    ])
-    st.table(scoreboard_data)
-
-elif page == "Markets":
-    st.title("Markets")
-    st.info("Live market data feed active.")
-
-elif page == "Paper Trading":
-    st.title("Paper Trading Simulator")
-    st.info("Simulated trade execution engine ready.")
-    
+        # ==================== MONTH 3: RISK MANAGEMENT & ADVANCED STRATEGIES ====================
+        "M3 W9 D1: Position Sizing & Risk Management": {
+            "concept": "Protecting capital using the 1% rule and fixed fractional risk.",
+            "questions": [
+                {"question": "What is the core rule of risk management per trade?", "options": ["Risk only a small fixed percentage (e.g., 1-2%) of total capital", "Risk 100% on every trade", "Never use stop losses", "Borrow maximum leverage"], "answer": "Risk only a small fixed percentage (e.g., 1-2%) of total capital"},
+                {"question": "How do you calculate position size?", "options": ["Account Risk Dollars divided by Distance to Stop Loss in dollars", "Random guess", "Account balance multiplied by 10", "Fee divided by leverage"], "answer": "Account Risk Dollars divided by Distance to Stop Loss in dollars"},
+                {"question": "What is Risk-to-Reward Ratio (RRR)?", "options": ["Potential profit target distance compared to potential stop loss risk distance", "Broker fee ratio", "Leverage multiplier", "Win rate percentage"], "answer": "Potential profit target distance compared to potential stop loss risk distance"},
+                {"question": "Why is a 1:3 Risk-to-Reward ratio powerful?", "options": ["You can be profitable even with a win rate below 40%", "It guarantees 100% wins", "It eliminates all market risk", "Brokers give bonuses"], "answer": "You can be profitable even with a win rate below 40%"},
+                {"question": "What is 'ruin risk' in trading?", "options": ["The mathematical probability of losing your entire trading capital", "A minor losing streak", "A tax penalty", "A software glitch"], "answer": "The mathematical probability of losing your entire trading capital"}
+            ]
+        },
+        "M3 W10 D1: Trading Psychology & Emotional Control": {
+            "concept": "Overcoming FOMO, revenge trading, and cognitive biases.",
+            "questions": [
+                {"question": "What is 'Revenge Trading'?", "options": ["Taking impulsive, oversized trades to quickly win back previous losses", "Trading as a career", "Closing a winning trade", "Following your plan"], "answer": "Taking impulsive, oversized trades to quickly win back previous losses"},
+                {"question": "What does FOMO stand for in trading?", "options": ["Fear Of Missing Out", "Future Order Market Option", "Fixed Overall Margin Outlay", "Fast Online Money Operation"], "answer": "Fear Of Missing Out"},
+                {"question": "How do professional traders handle a losing streak?", "options": ["Step away from screens and adhere strictly to risk rules", "Double position size immediately", "Break computer", "Blame the market maker"], "answer": "Step away from screens and adhere strictly to risk rules"},
+                {"question": "What is confirmation bias?", "options": ["Seeking out information that confirms your existing bias while ignoring warning signs", "Trading accurately", "Confirming account deposits", "Broker verification"], "answer": "Seeking out information that confirms your existing bias while ignoring warning signs"},
+                {"question": "Why is keeping emotions detached crucial?", "options": ["Emotions lead to hesitation, breaking rules, and capital destruction", "Emotions increase leverage", "Brokers hate feelings", "It makes trading boring"], "answer": "Emotions lead to hesitation, breaking rules, and capital destruction"}
+            ]
+        },
+        "M3 W11 D1: Trading Journals & Performance Analytics": {
+            "concept": "Logging trades, win rates, and finding edge through data.",
+            "questions": [
+                {"question": "Why keep a trading journal?", "options": ["To log mistakes, analyze setup performance, and find your statistical edge", "To show friends", "Tax compliance", "Pass time"], "answer": "To log mistakes, analyze setup performance, and find your statistical edge"},
+                {"question": "What is trading Expectancy?", "options": ["Average amount won/lost per dollar risked based on win rate and RRR", "Emotional mood", "Daily goal", "Guaranteed return"], "answer": "Average amount won/lost per dollar risked based on win rate and RRR"},
+                {"question": "What metric measures how well you stick to your trading plan?", "options": ["Plan Adherence Score", "Account balance alone", "Click speed", "Trade count"], "answer": "Plan Adherence Score"},
+                {"question": "How often should your journal logs be reviewed?", "options": ["Weekly or monthly to detect behavioral leaks and edge decay", "Every 10 years", "Never", "Only after bankruptcy"], "answer": "Weekly or monthly to detect behavioral leaks and edge decay"},
+                {"question": "What key data fields should every journal include?", "options": ["Entry price, exit price, stop loss, setup type, emotional state, and screenshots", "Only account balance", "Favorite color", "Weather condition"], "answer": "Entry price, exit price, stop loss, setup type, emotional state, and screenshots"}
+            ]
+        },
+        "M3 W12 D1: Building a Complete Trading Plan": {
+            "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
+            "questions": [
+                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue", 
