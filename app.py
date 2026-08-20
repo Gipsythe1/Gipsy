@@ -205,7 +205,7 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "What key data fields should every journal include?", "options": ["Entry price, exit price, stop loss, setup type, emotional state, and screenshots", "Only account balance", "Favorite color", "Weather condition"], "answer": "Entry price, exit price, stop loss, setup type, emotional state, and screenshots"}
             ]
         },
-        "M3 W12 D1: Building a Complete Trading Plan": {
+                "M3 W12 D1: Building a Complete Trading Plan": {
             "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
             "questions": [
                 {
@@ -217,4 +217,47 @@ elif page == "Trading Academy (3-Month Roadmap)":
                         "To look smart"
                     ],
                     "answer": "To serve as an objective rulebook removing real-time decision fatigue"
-    }
+                },
+                {
+                    "question": "What happens if a market setup doesn't fit your plan?",
+                    "options": [
+                        "You skip it entirely",
+                        "You trade it with small size",
+                        "You hope for the best",
+                        "You add new rules"
+                    ],
+                    "answer": "You skip it entirely"
+                },
+                {
+                    "question": "What is the most critical element of a trading plan?",
+                    "options": [
+                        "Rigid risk management rules",
+                        "A secret indicator",
+                        "High leverage",
+                        "Predicting the future"
+                    ],
+                    "answer": "Rigid risk management rules"
+                },
+                {
+                    "question": "What defines your 'Trading Edge'?",
+                    "options": [
+                        "A statistical advantage that yields positive expectancy over many trades",
+                        "The best computer hardware",
+                        "Trading during high volume hours",
+                        "A high win rate with 0% risk"
+                    ],
+                    "answer": "A statistical advantage that yields positive expectancy over many trades"
+                },
+                {
+                    "question": "When should you update your trading plan?",
+                    "options": [
+                        "After a thorough performance review during non-trading hours",
+                        "During a live trade while losing money",
+                        "Every time the market moves",
+                        "Only when you want to change strategies"
+                    ],
+                    "answer": "After a thorough performance review during non-trading hours"
+                }
+            ]
+                }
+    
