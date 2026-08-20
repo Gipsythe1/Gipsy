@@ -45,7 +45,8 @@ if page == "Dashboard":
 elif page == "Trading Academy (3-Month Roadmap)":
     st.markdown(f'<div class="duo-stats"><span>🔥 Streak: {st.session_state.streak} Days</span><span>⚡ XP: {st.session_state.xp}</span><span>❤️ Hearts: {"❤️" * st.session_state.hearts}</span></div>', unsafe_allow_html=True)
 
-    lessons_db = {
+    # Split lessons database into chunks to prevent syntax parsing drops
+    lessons_part1 = {
         "M1 W1: Market Mechanics & Orders": {
             "concept": "Mastering order books, market makers, spreads, and leverage mechanics.",
             "questions": [
@@ -85,7 +86,10 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "What is a Bear Market structure?", "options": ["Sequence of Lower Highs and Lower Lows", "Higher highs", "Parabolic pumps", "Zero volatility"], "answer": "Sequence of Lower Highs and Lower Lows"},
                 {"question": "Why is multi-timeframe analysis necessary?", "options": ["To ensure lower timeframe trades align with higher timeframe trends", "To confuse traders", "Brokers require it", "No use"], "answer": "To ensure lower timeframe trades align with higher timeframe trends"}
             ]
-        },
+        }
+    }
+
+    lessons_part2 = {
         "M2 W5: Moving Averages & Trend Filters": {
             "concept": "Utilizing SMA, EMA, and Golden/Death crosses.",
             "questions": [
@@ -125,7 +129,10 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "What does it mean when price hugs the upper Bollinger Band?", "options": ["Strong bullish momentum", "Extreme weakness", "Market crash", "Flat range"], "answer": "Strong bullish momentum"},
                 {"question": "How are Bollinger Band standard deviations typically set?", "options": ["2 standard deviations from the 20-period SMA", "1 standard deviation", "5 standard deviations", "None"], "answer": "2 standard deviations from the 20-period SMA"}
             ]
-        },
+        }
+    }
+
+    lessons_part3 = {
         "M3 W9: Position Sizing & Risk Management": {
             "concept": "Protecting capital using the 1% rule and risk-reward ratios.",
             "questions": [
@@ -167,7 +174,4 @@ elif page == "Trading Academy (3-Month Roadmap)":
                         "To satisfy bank loans",
                         "To predict future"
                     ],
-                    "answer": "To serve as an objective rulebook removing real-time decision fatigue"
-                },
-                {
-                   
+                    "answe
