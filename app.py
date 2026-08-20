@@ -71,7 +71,7 @@ if page == "Dashboard":
     with col2:
         st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Today\'s Profit</p><h2 style="margin: 0; color: #ffffff;">$245.60</h2><span style="color: #089981; font-weight: bold;">+2.45%</span></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown('<div class="metric-card"><p style="color: &848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
+        st.markdown('<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Available Cash</p><h2 style="margin: 0; color: #ffffff;">$8,750.00</h2><span style="color: #848e9c;">Ready to trade</span></div>', unsafe_allow_html=True)
 
     st.write("")
     chart_col, watch_col = st.columns([3, 1])
@@ -94,9 +94,7 @@ elif page == "Trading Academy (3-Month Roadmap)":
         </div>
     """, unsafe_allow_html=True)
 
-    # Full 3-Month Curriculum (Months 1, 2, and 3) Structured by Weeks
     lessons_db = {
-        # ==================== MONTH 1: MARKET MECHANICS & PRICE ACTION ====================
         "M1 W1 D1: Bid-Ask Spreads": {
             "concept": "Order books, market makers, and liquidity mechanics.",
             "questions": [
@@ -137,8 +135,6 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "How to trade uptrends?", "options": ["Buy pullbacks near support", "Sell green", "100x short", "Never"], "answer": "Buy pullbacks near support"}
             ]
         },
-
-        # ==================== MONTH 2: TECHNICAL INDICATORS & OSCILLATORS ====================
         "M2 W5 D1: Simple vs Exponential Moving Averages": {
             "concept": "Mastering SMA and EMA calculations and smoothing.",
             "questions": [
@@ -179,8 +175,6 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "How are Bollinger Band standard deviations typically set?", "options": ["2 standard deviations from the 20-period SMA", "1 standard deviation from 10 SMA", "5 standard deviations", "No standard deviation"], "answer": "2 standard deviations from the 20-period SMA"}
             ]
         },
-
-        # ==================== MONTH 3: RISK MANAGEMENT & ADVANCED STRATEGIES ====================
         "M3 W9 D1: Position Sizing & Risk Management": {
             "concept": "Protecting capital using the 1% rule and fixed fractional risk.",
             "questions": [
@@ -214,4 +208,13 @@ elif page == "Trading Academy (3-Month Roadmap)":
         "M3 W12 D1: Building a Complete Trading Plan": {
             "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
             "questions": [
-                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue",
+                {
+                    "question": "What is the purpose of a written Trading Plan?",
+                    "options": [
+                        "To serve as an objective rulebook removing real-time decision fatigue",
+                        "To post on social media",
+                        "To satisfy regulatory requirements",
+                        "To look smart"
+                    ],
+                    "answer": "To serve as an objective rulebook removing real-time decision fatigue"
+    }
