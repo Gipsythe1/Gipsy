@@ -26,34 +26,10 @@ if "completed_lessons" not in st.session_state:
 # Custom Styling
 st.markdown("""
     <style>
-    .stApp {
-        background-color: #131722;
-        color: #d1d4dc;
-    }
-    .metric-card {
-        background-color: #1e222d;
-        border: 1px solid #2a2e39;
-        padding: 20px;
-        border-radius: 10px;
-    }
-    .duo-stats {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #1e222d;
-        padding: 12px 20px;
-        border-radius: 12px;
-        border: 1px solid #2a2e39;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    .quiz-box {
-        background-color: #1e222d;
-        border: 1px solid #2a2e39;
-        padding: 25px;
-        border-radius: 16px;
-        margin-top: 10px;
-    }
+    .stApp { background-color: #131722; color: #d1d4dc; }
+    .metric-card { background-color: #1e222d; border: 1px solid #2a2e39; padding: 20px; border-radius: 10px; }
+    .duo-stats { display: flex; justify-content: space-between; align-items: center; background: #1e222d; padding: 12px 20px; border-radius: 12px; border: 1px solid #2a2e39; margin-bottom: 20px; font-weight: bold; }
+    .quiz-box { background-color: #1e222d; border: 1px solid #2a2e39; padding: 25px; border-radius: 16px; margin-top: 10px; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -209,4 +185,4 @@ elif page == "Trading Academy (3-Month Roadmap)":
         "M3 W12: Building a Master Trading Plan": {
             "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
             "questions": [
-                {"quest
+                {"question": "What is the purpose of a written Trading Plan?", "options": ["To serve as an objective rulebook removing real-time decision fatigue", "To decorate desk", "To satisfy ban
