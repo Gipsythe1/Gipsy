@@ -4,12 +4,12 @@ import numpy as np
 
 # Page Configuration
 st.set_page_config(
-    page_title="TradeX",
+    page_title="TradeX - Dashboard & Academy",
     page_icon="📈",
     layout="wide"
 )
 
-# Custom Styling to Match TradeX Dark Theme
+# Custom Styling for TradeX Dark Mode Theme
 st.markdown("""
     <style>
     .stApp {
@@ -28,17 +28,30 @@ st.markdown("""
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 15px;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .lesson-card:hover {
+        border-color: #2962ff;
+    }
+    .watchlist-item {
+        background: #1e222d;
+        padding: 12px 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #2a2e39;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar Navigation
-st.sidebar.markdown("# **TRADE<span style='color: #2962ff;'>X</span>**", unsafe_allow_html=True)
-page = st.sidebar.radio("Navigation", ["Dashboard", "Learn (7-Day Curriculum)", "Markets", "Paper Trading"])
+# Sidebar Navigation matching the TradeX layout
+st.sidebar.markdown("## TRADE<span style='color: #2962ff;'>X</span>", unsafe_allow_html=True)
+page = st.sidebar.radio("Navigation", ["Dashboard", "Trading Academy (Learn)", "Markets", "Paper Trading"])
 
 if page == "Dashboard":
     # Header Section
-    st.markdown("### WELCOME BACK")
+    st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>WELCOME BACK</p>", unsafe_allow_html=True)
     st.title("Trading Dashboard")
     
     # Top Metric Cards
@@ -47,27 +60,27 @@ if page == "Dashboard":
     with col1:
         st.markdown("""
         <div class="metric-card">
-            <p style="color: #848e9c; margin-bottom: 5px;">Portfolio Value</p>
+            <p style="color: #848e9c; margin-bottom: 5px; font-size: 0.9rem;">Portfolio Value</p>
             <h2 style="margin: 0; color: #ffffff;">$10,000.00</h2>
-            <span style="color: #089981; font-weight: bold;">+2.45%</span>
+            <span style="color: #089981; font-weight: bold; font-size: 0.85rem;">+2.45%</span>
         </div>
         """, unsafe_allow_html=True)
         
     with col2:
         st.markdown("""
         <div class="metric-card">
-            <p style="color: #848e9c; margin-bottom: 5px;">Today's Profit</p>
+            <p style="color: #848e9c; margin-bottom: 5px; font-size: 0.9rem;">Today's Profit</p>
             <h2 style="margin: 0; color: #ffffff;">$245.60</h2>
-            <span style="color: #089981; font-weight: bold;">+2.45%</span>
+            <span style="color: #089981; font-weight: bold; font-size: 0.85rem;">+2.45%</span>
         </div>
         """, unsafe_allow_html=True)
         
     with col3:
         st.markdown("""
         <div class="metric-card">
-            <p style="color: #848e9c; margin-bottom: 5px;">Available Cash</p>
+            <p style="color: #848e9c; margin-bottom: 5px; font-size: 0.9rem;">Available Cash</p>
             <h2 style="margin: 0; color: #ffffff;">$8,750.00</h2>
-            <span style="color: #848e9c;">Ready to trade</span>
+            <span style="color: #848e9c; font-size: 0.85rem;">Ready to trade</span>
         </div>
         """, unsafe_allow_html=True)
 
@@ -80,12 +93,19 @@ if page == "Dashboard":
         st.markdown("### BTC / USD")
         st.markdown("## $68,420.50")
         
-        # Generate dummy price data for chart
+        # Timeframe selector simulation
+        cols = st.columns([1, 1, 1, 1, 6])
+        with cols[0]: st.button("1H")
+        with cols[1]: st.button("1D", type="primary")
+        with cols[2]: st.button("1W")
+        with cols[3]: st.button("1M")
+        
+        # Clean line chart generation without any backend debug text leaks
         chart_data = pd.DataFrame(
             np.random.randn(50, 1).cumsum() + 68420,
             columns=["Price"]
         )
-        st.line_chart(chart_data, color="#2962ff")
+        st.line_chart(chart_data, color="#2962ff", height=350)
         
     with watch_col:
         st.markdown("### Watchlist")
@@ -97,14 +117,14 @@ if page == "Dashboard":
         }
         for asset, price in watchlist_items.items():
             st.markdown(f"""
-            <div style="background: #1e222d; padding: 10px 15px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between;">
+            <div class="watchlist-item">
                 <b>{asset}</b>
                 <span style="color: #848e9c;">{price}</span>
             </div>
             """, unsafe_allow_html=True)
 
-elif page == "Learn (7-Day Curriculum)":
-    st.markdown("### TRADING ACADEMY")
+elif page == "Trading Academy (Learn)":
+    st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>LEARN</p>", unsafe_allow_html=True)
     st.title("7-Day Masterclass Curriculum")
     st.write("Master the markets day-by-day with our structured curriculum.")
     
@@ -122,12 +142,16 @@ elif page == "Learn (7-Day Curriculum)":
         st.markdown(f"""
         <div class="lesson-card">
             <span style="background: rgba(41, 98, 255, 0.15); color: #2962ff; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: bold;">{day}</span>
-            <h3 style="margin-top: 10px; color: #ffffff;">{title}</h3>
-            <p style="color: #848e9c;">{desc}</p>
+            <h3 style="margin-top: 10px; color: #ffffff; margin-bottom: 8px;">{title}</h3>
+            <p style="color: #848e9c; margin-bottom: 0;">{desc}</p>
         </div>
         """, unsafe_allow_html=True)
 
-elif page in ["Markets", "Paper Trading"]:
-    st.title(f"{page}")
-    st.info(f"The {page.lower()} module is currently under development.")
-        
+elif page == "Markets":
+    st.title("Markets")
+    st.info("The live markets database view is currently syncing.")
+
+elif page == "Paper Trading":
+    st.title("Paper Trading Simulator")
+    st.info("The paper trading execution engine is currently under development.")
+            
