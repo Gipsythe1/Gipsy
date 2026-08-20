@@ -95,9 +95,8 @@ elif page == "Trading Academy (3-Month Roadmap)":
         </div>
     """, unsafe_allow_html=True)
 
-    # 3-Month Curriculum Database (Expanded across 12 Weeks)
-    lessons_db = {
-        # --- MONTH 1: Foundations & Price Action ---
+    # Modularized Curriculum Databases to prevent syntax parsing errors
+    month1_lessons = {
         "Month 1, Week 1: Market Mechanics & Orders": {
             "concept": "Mastering order types (Market, Limit, Stop), liquidity providers, and exchange execution mechanics.",
             "questions": [
@@ -137,9 +136,10 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "How do you identify a trend reversal?", "options": ["When structure breaks (e.g., a downtrend makes a higher high)", "When volume drops to zero", "When you feel like trading", "When news stations report on it"], "answer": "When structure breaks (e.g., a downtrend makes a higher high)"},
                 {"question": "What timeframes should trend analysis be checked on?", "options": ["Only 1-minute charts", "Multi-timeframe analysis (e.g., Daily, 4H, 1H)", "Only yearly charts", "Timeframes do not matter"], "answer": "Multi-timeframe analysis (e.g., Daily, 4H, 1H)"}
             ]
-        },
+        }
+    }
 
-        # --- MONTH 2: Indicators, Risk, & Systems ---
+    month2_lessons = {
         "Month 2, Week 5: Moving Averages & Trend Filters": {
             "concept": "Utilizing Simple and Exponential Moving Averages (SMA/EMA) alongside Golden and Death crosses.",
             "questions": [
@@ -179,9 +179,10 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 {"question": "What is Average True Range (ATR) used for?", "options": ["Measuring market volatility to set stop losses", "Predicting exact tops", "Calculating dividends", "Tracking news events"], "answer": "Measuring market volatility to set stop losses"},
                 {"question": "What does low volume during an upward price push suggest?", "options": ["Weak buying interest and potential trap", "Massive institutional buying", "Guaranteed continuation", "Maximum safety"], "answer": "Weak buying interest and potential trap"}
             ]
-        },
+        }
+    }
 
-        # --- MONTH 3: Psychology, Macro, & Mastery ---
+    month3_lessons = {
         "Month 3, Week 9: Trading Psychology & Emotional Control": {
             "concept": "Conquering FOMO, greed, panic, and revenge trading (tilt) through strict discipline.",
             "questions": [
@@ -205,4 +206,4 @@ elif page == "Trading Academy (3-Month Roadmap)":
         "Month 3, Week 11: Trading Journals & Performance Analytics": {
             "concept": "Tracking win rates, risk-reward expectancy, and finding edge through rigorous data logging.",
             "questions": [
-                {"que
+                {"question": "Why do professional traders keep a trading journal?", "options": ["To log mistakes, t
