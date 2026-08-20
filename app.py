@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Initialize Session State for Gamification (XP, Hearts, Streak)
+# Initialize Session State for Gamification & Progress
 if "xp" not in st.session_state:
     st.session_state.xp = 150
 if "hearts" not in st.session_state:
@@ -18,8 +18,10 @@ if "streak" not in st.session_state:
     st.session_state.streak = 3
 if "active_lesson" not in st.session_state:
     st.session_state.active_lesson = None
+if "question_index" not in st.session_state:
+    st.session_state.question_index = 0
 
-# Custom Styling for TradeX Dark Mode + Duolingo-inspired UI Elements
+# Custom Styling
 st.markdown("""
     <style>
     .stApp {
@@ -41,14 +43,6 @@ st.markdown("""
         border: 1px solid #2a2e39;
         margin-bottom: 20px;
         font-weight: bold;
-    }
-    .lesson-node {
-        background-color: #1e222d;
-        border: 2px solid #2962ff;
-        padding: 15px;
-        border-radius: 12px;
-        margin-bottom: 15px;
-        cursor: pointer;
     }
     .quiz-box {
         background-color: #1e222d;
@@ -98,73 +92,158 @@ elif page == "Trading Academy (Duolingo Mode)":
         </div>
     """, unsafe_allow_html=True)
 
-    # Sample Duolingo-style bite-sized lesson database
+    # Database with 5 questions per lesson
     lessons_db = {
         "Day 1: What is a Market Maker?": {
-            "concept": "Market makers provide liquidity by always being ready to buy or sell at publicly quoted prices.",
-            "question": "What is the primary role of a Market Maker?",
-            "options": ["To crash the price", "To provide liquidity and facilitate trades", "To charge high trading taxes", "To print money"],
-            "answer": "To provide liquidity and facilitate trades"
+            "concept": "Market makers provide liquidity by always being ready to buy or sell at publicly quoted prices, earning revenue through the bid-ask spread.",
+            "questions": [
+                {
+                    "question": "What is the primary role of a Market Maker?",
+                    "options": ["To crash the price", "To provide liquidity and facilitate trades", "To charge high trading taxes", "To print money"],
+                    "answer": "To provide liquidity and facilitate trades"
+                },
+                {
+                    "question": "What term describes the price difference between what buyers want to pay and sellers want to accept?",
+                    "options": ["Leverage Ratio", "Bid-Ask Spread", "Dividend Yield", "Slippage Fee"],
+                    "answer": "Bid-Ask Spread"
+                },
+                {
+                    "question": "Who typically acts as market makers in traditional stock markets?",
+                    "options": ["Individual retail traders", "Specialized institutional firms and designated specialists", "Central governments exclusively", "Cryptocurrency miners"],
+                    "answer": "Specialized institutional firms and designated specialists"
+                },
+                {
+                    "question": "How do market makers generally make a profit?",
+                    "options": ["By collecting transaction taxes", "Through the spread between bid and ask prices", "By shorting every retail account", "They operate purely as charities"],
+                    "answer": "Through the spread between bid and ask prices"
+                },
+                {
+                    "question": "What typically happens to market liquidity if market makers suddenly step away?",
+                    "options": ["Spreads widen and execution becomes difficult", "Prices freeze permanently", "Trading volume doubles instantly", "Fees drop to zero"],
+                    "answer": "Spreads widen and execution becomes difficult"
+                }
+            ]
         },
         "Day 2: Support & Resistance": {
-            "concept": "Support is a price floor where buying interest is strong, and resistance is a ceiling where selling pressure takes over.",
-            "question": "When price hits a 'Resistance' level, what usually happens?",
-            "options": ["Sellers step in and push price down", "Buyers panic and buy everything", "The exchange shuts down", "Nothing changes"],
-            "answer": "Sellers step in and push price down"
+            "concept": "Support is a price floor where buying interest overwhelms selling pressure, while resistance is a ceiling where selling pressure halts upward momentum.",
+            "questions": [
+                {
+                    "question": "When price hits a 'Resistance' level, what usually happens?",
+                    "options": ["Sellers step in and push price down", "Buyers panic and buy everything", "The exchange shuts down", "Nothing changes"],
+                    "answer": "Sellers step in and push price down"
+                },
+                {
+                    "question": "How is a 'Support' level viewed in technical analysis?",
+                    "options": ["A price ceiling", "A price floor where buying interest is strong", "A guaranteed loss point", "An indicator of bankruptcy"],
+                    "answer": "A price floor where buying interest is strong"
+                },
+                {
+                    "question": "What often happens when a major resistance level is broken with high volume?",
+                    "options": ["It flips into a new support level", "The asset gets delisted", "Trading is suspended for a week", "Volume drops to zero"],
+                    "answer": "It flips into a new support level"
+                },
+                {
+                    "question": "Why do round psychological numbers (like $50,000) often act as support or resistance?",
+                    "options": ["Because algorithms are programmed to ignore them", "Because many human traders place orders at clean levels", "They never act as barriers", "Government regulations mandate it"],
+                    "answer": "Because many human traders place orders at clean levels"
+                },
+                {
+                    "question": "What is a 'false breakout' or 'liquidity sweep'?",
+                    "options": ["When a broker steals funds", "When price briefly spikes past a level to trigger stops before reversing", "A permanent market crash", "An error on the chart screen"],
+                    "answer": "When price briefly spikes past a level to trigger stops before reversing"
+                }
+            ]
         },
         "Day 3: The Hammer Candlestick": {
-            "concept": "A hammer has a small body and a long lower wick, indicating that sellers tried to push prices down, but buyers rejected it.",
-            "question": "What does a long lower wick on a Hammer candle tell you?",
-            "options": ["Extreme selling panic", "Price rejection and buyer defense", "Market closure", "Zero volume"],
-            "answer": "Price rejection and buyer defense"
+            "concept": "A hammer has a small body and a long lower wick, indicating that sellers tried to push prices down during the session, but buyers aggressively rejected it.",
+            "questions": [
+                {
+                    "question": "What does a long lower wick on a Hammer candle tell you?",
+                    "options": ["Extreme selling panic", "Price rejection and buyer defense", "Market closure", "Zero volume"],
+                    "answer": "Price rejection and buyer defense"
+                },
+                {
+                    "question": "What kind of body size is characteristic of a classic Hammer candle?",
+                    "options": ["A massive body spanning the whole day", "A small body located near the upper end of the range", "No body at all", "A perfectly square body"],
+                    "answer": "A small body located near the upper end of the range"
+                },
+                {
+                    "question": "Where do you typically look for a Hammer pattern to signal a potential bullish reversal?",
+                    "options": ["At the very top of a massive bull run", "At the bottom of a downtrend near support", "In the middle of a sideways flat range", "On a 5-second chart only"],
+                    "answer": "At the bottom of a downtrend near support"
+                },
+                {
+                    "question": "What color can the body of a valid hammer candle be?",
+                    "options": ["Only neon green", "Only dark red", "Either green or red", "Must be completely transparent"],
+                    "answer": "Either green or red"
+                },
+                {
+                    "question": "What is the core market psychology story behind a Hammer candle?",
+                    "options": ["Bears dominated every minute of the session", "Bulls drove prices down all day", "Bears pushed prices low, but bulls bought up the dip before close", "Traders refused to participate"],
+                    "answer": "Bears pushed prices low, but bulls bought up the dip before close"
+                }
+            ]
         }
     }
 
     if st.session_state.active_lesson is None:
         st.title("🎯 Choose Your Bite-Sized Mission")
-        st.write("Complete quick interactive lessons to earn XP and protect your streak!")
+        st.write("Complete 5 quick interactive challenges per lesson to earn XP and protect your streak!")
         
         for lesson_title, data in lessons_db.items():
             col1, col2 = st.columns([4, 1])
             with col1:
                 st.markdown(f"### {lesson_title}")
-                st.write(data["concept"][:80] + "...")
+                st.write(data["concept"])
             with col2:
                 if st.button("Start Lesson 🚀", key=lesson_title):
                     st.session_state.active_lesson = lesson_title
+                    st.session_state.question_index = 0
                     st.rerun()
             st.markdown("---")
             
     else:
-        # Active Lesson Interactive Duolingo Quiz Loop
         lesson_key = st.session_state.active_lesson
         current_lesson = lessons_db[lesson_key]
+        q_idx = st.session_state.question_index
         
         if st.button("⬅️ Back to Map"):
             st.session_state.active_lesson = None
+            st.session_state.question_index = 0
             st.rerun()
             
-        st.title(f"📖 Lesson: {lesson_key}")
+        st.title(f"📖 {lesson_key}")
+        st.write(f"**Question {q_idx + 1} of {len(current_lesson['questions'])}**")
+        
+        # Display current question
+        q_data = current_lesson["questions"][q_idx]
         
         st.markdown(f"""
         <div class="quiz-box">
-            <h4 style="color: #2962ff;">💡 Quick Concept Breakdown</h4>
-            <p>{current_lesson['concept']}</p>
+            <h4 style="color: #2962ff;">🧩 Challenge</h4>
+            <p style="font-size: 1.1rem; font-weight: bold;">{q_data['question']}</p>
         </div>
         """, unsafe_allow_html=True)
         
-        st.markdown("### 🧩 Quick Challenge")
-        user_choice = st.radio(current_lesson["question"], current_lesson["options"], key="quiz_radio")
+        user_choice = st.radio("Select your answer:", q_data["options"], key=f"q_{q_idx}")
         
         if st.button("Check Answer ✅"):
-            if user_choice == current_lesson["answer"]:
-                st.success("🎉 Correct! Great job! (+15 XP)")
-                st.session_state.xp += 15
-                if st.button("Continue ➡️"):
+            if user_choice == q_data["answer"]:
+                st.success("🎉 Correct! Great job!")
+                st.session_state.xp += 10
+                
+                # Advance question or finish lesson
+                if q_idx + 1 < len(current_lesson["questions"]):
+                    st.session_state.question_index += 1
+                    if st.button("Next Question ➡️"):
+                        st.rerun()
+                else:
+                    st.balloons()
+                    st.success("🏆 Lesson Completed! You earned bonus XP!")
                     st.session_state.active_lesson = None
-                    st.rerun()
+                    st.session_state.question_index = 0
             else:
-                st.error("❌ Incorrect! Try to remember the concept breakdown.")
+                st.error("❌ Incorrect! Try again.")
                 st.session_state.hearts = max(0, st.session_state.hearts - 1)
 
 elif page == "Markets":
@@ -174,3 +253,4 @@ elif page == "Markets":
 elif page == "Paper Trading":
     st.title("Paper Trading Simulator")
     st.info("Simulated trade execution engine ready.")
+            
