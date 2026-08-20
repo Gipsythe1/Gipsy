@@ -94,122 +94,117 @@ elif page == "Trading Academy (3-Month Roadmap)":
         </div>
     """, unsafe_allow_html=True)
 
-    # Simplified, Clean Database Structure
+    # Expanded Month 1 (Day-by-Day with 5 Questions each) + Month 2 & 3 Frameworks
     lessons_db = {
-        "Month 1, Week 1: Market Mechanics": {
-            "concept": "Mastering order types (Market, Limit, Stop) and exchange execution mechanics.",
+        # --- MONTH 1, WEEK 1: Market Mechanics & Orders ---
+        "M1 W1 D1: Bid-Ask Spreads & Liquidity": {
+            "concept": "Understanding order books, market makers, and how liquidity works.",
             "questions": [
-                {"question": "What is the primary role of a Market Maker?", "options": ["Crash price", "Provide liquidity", "Charge taxes", "Print money"], "answer": "Provide liquidity"},
-                {"question": "What describes the price difference between buyers and sellers?", "options": ["Leverage", "Bid-Ask Spread", "Dividend", "Fee"], "answer": "Bid-Ask Spread"},
-                {"question": "Which order guarantees speed over price?", "options": ["Limit", "Market", "Stop", "GTC"], "answer": "Market"}
+                {"question": "What is the primary role of a Market Maker?", "options": ["Crash price", "Provide liquidity", "Charge high taxes", "Print money"], "answer": "Provide liquidity"},
+                {"question": "What term describes the price gap between buyers and sellers?", "options": ["Leverage Ratio", "Bid-Ask Spread", "Dividend Yield", "Slippage Fee"], "answer": "Bid-Ask Spread"},
+                {"question": "What happens to spreads during high volatility?", "options": ["They tighten", "They widen significantly", "They disappear", "Exchanges pause"], "answer": "They widen significantly"},
+                {"question": "Who absorbs market orders on an exchange?", "options": ["Limit orders sitting in the order book", "The government", "Miners", "Random generators"], "answer": "Limit orders sitting in the order book"},
+                {"question": "What is market depth?", "options": ["The ocean depth", "The volume of pending buy and sell orders at various prices", "Account balance", "Leverage limit"], "answer": "The volume of pending buy and sell orders at various prices"}
             ]
         },
-        "Month 1, Week 2: Support & Resistance": {
-            "concept": "Identifying structural turning points where market participants dominate price action.",
+        "M1 W1 D2: Market vs Limit Orders": {
+            "concept": "Executing trades with execution speed vs price precision.",
             "questions": [
-                {"question": "What happens when price hits Resistance?", "options": ["Sellers push price down", "Buyers panic", "Exchange shuts down", "Nothing"], "answer": "Sellers push price down"},
-                {"question": "What is a Support level?", "options": ["Price ceiling", "Price floor where buying is strong", "Loss point", "Bankruptcy indicator"], "answer": "Price floor where buying is strong"}
+                {"question": "Which order guarantees speed over price execution?", "options": ["Limit Order", "Market Order", "Stop-Loss", "GTC Order"], "answer": "Market Order"},
+                {"question": "What is a Limit Order used for?", "options": ["Buying instantly at any price", "Specifying an exact target price to execute", "Closing account", "Avoiding taxes"], "answer": "Specifying an exact target price to execute"},
+                {"question": "What is slippage?", "options": ["Ice on a chart", "The difference between expected price and execution price", "Broker bonus", "Platform crash"], "answer": "The difference between expected price and execution price"},
+                {"question": "When should you prefer a Limit Order?", "options": ["During low liquidity or to avoid high slippage", "During a panic crash", "Never", "When trading with 100x leverage"], "answer": "During low liquidity or to avoid high slippage"},
+                {"question": "What does IOC (Immediate-Or-Cancel) mean?", "options": ["Cancel account", "Execute immediately or cancel unfulfilled parts", "Ignore order conditions", "Infinite order creation"], "answer": "Execute immediately or cancel unfulfilled parts"}
             ]
         },
-        "Month 2, Week 5: Moving Averages": {
-            "concept": "Utilizing Simple and Exponential Moving Averages (SMA/EMA).",
+        "M1 W1 D3: Stop Orders & Trigger Mechanics": {
+            "concept": "Using conditional trigger orders to manage breakouts and risk.",
             "questions": [
-                {"question": "What is the key difference with EMA?", "options": ["Weights recent prices more", "Only for crypto", "Lags further", "No difference"], "answer": "Weights recent prices more"},
-                {"question": "What is a Golden Cross?", "options": ["Short MA crosses above long MA", "Price drops 50%", "Tax rule", "Candle pattern"], "answer": "Short MA crosses above long MA"}
+                {"question": "What triggers a Stop-Loss order?", "options": ["Price reaching a specified trigger price", "Broker manual click", "Random timer", "Volume dropping"], "answer": "Price reaching a specified trigger price"},
+                {"question": "What is a Stop-Limit order?", "options": ["An order that turns into a limit order once triggered", "A permanent ban", "A free trade", "A market order"], "answer": "An order that turns into a limit order once triggered"},
+                {"question": "Why use a Stop-Loss?", "options": ["To limit potential trading losses automatically", "To guarantee profit", "To increase fees", "To double margin"], "answer": "To limit potential trading losses automatically"},
+                {"question": "Can a Stop-Limit order fail to execute?", "options": ["No, never", "Yes, if price moves past the limit price too fast", "Only on weekends", "Only in crypto"], "answer": "Yes, if price moves past the limit price too fast"},
+                {"question": "What is a Trailing Stop?", "options": ["A stop loss that automatically tracks favorable price movement", "A lagging indicator", "A fixed price floor", "A market exit strategy"], "answer": "A stop loss that automatically tracks favorable price movement"}
             ]
         },
-        "Month 3, Week 11: Trading Journals": {
-            "concept": "Tracking win rates, risk-reward expectancy, and finding edge through data.",
+        "M1 W1 D4: Margin & Leverage Basics": {
+            "concept": "Amplifying exposure using borrowed capital responsibly.",
             "questions": [
-                {"question": "Why keep a trading journal?", "options": ["To log mistakes and analyze edge", "To show friends", "Tax compliance", "Pass time"], "answer": "To log mistakes and analyze edge"},
-                {"question": "What is trading Expectancy?", "options": ["Average amount won/lost per dollar risked", "Emotional mood", "Daily profit goal", "Guaranteed return"], "answer": "Average amount won/lost per dollar risked"}
+                {"question": "What is leverage in trading?", "options": ["Borrowing funds from a broker to increase position size", "A physical tool", "A tax penalty", "A type of chart"], "answer": "Borrowing funds from a broker to increase position size"},
+                {"question": "What is a Margin Call?", "options": ["A phone call from your mom", "A demand to add funds when losses approach your collateral limit", "Winning a prize", "Closing a winning trade"], "answer": "A demand to add funds when losses approach your collateral limit"},
+                {"question": "What happens with 10x leverage if the market moves 10% against you?", "options": ["You break even", "You lose your entire margin collateral (liquidation)", "You double money", "Nothing"], "answer": "You lose your entire margin collateral (liquidation)"},
+                {"question": "What is initial margin?", "options": ["Collateral required to open a leveraged position", "Free money", "Broker fee", "Profit target"], "answer": "Collateral required to open a leveraged position"},
+                {"question": "Is high leverage recommended for beginners?", "options": ["Yes, always", "No, it rapidly destroys accounts", "Only on Fridays", "Only for stocks"], "answer": "No, it rapidly destroys accounts"}
             ]
-        }
-    }
+        },
+        "M1 W1 D5: Settlement & Exchange Architecture": {
+            "concept": "Understanding centralized vs decentralized exchanges and settlement cycles.",
+            "questions": [
+                {"question": "What is a CEX (Centralized Exchange)?", "options": ["A platform managed by a company matching orders", "A peer-to-peer network", "A bank vault", "A chart pattern"], "answer": "A platform managed by a company matching orders"},
+                {"question": "What is a DEX (Decentralized Exchange)?", "options": ["An exchange running via smart contracts on a blockchain", "A physical trading floor", "A closed database", "A stock broker"], "answer": "An exchange running via smart contracts on a blockchain"},
+                {"question": "What does T+1 settlement mean?", "options": ["Trades settle one business day after execution", "Trades take 1 year", "Instant cash out", "Zero settlement"], "answer": "Trades settle one business day after execution"},
+                {"question": "What is counterparty risk?", "options": ["The risk that the other party or exchange fails to fulfill obligations", "Market volatility", "Slippage risk", "Spread cost"], "answer": "The risk that the other party or exchange fails to fulfill obligations"},
+                {"question": "What is cold storage?", "options": ["A refrigerator", "Offline digital wallet security for keeping assets safe from hacks", "A trading strategy", "A market downturn"], "answer": "Offline digital wallet security for keeping assets safe from hacks"}
+            ]
+        },
 
-    if st.session_state.active_lesson is None:
-        st.title("🎯 3-Month Masterclass Curriculum Roadmap")
-        st.write("Complete weekly modules to master markets from scratch.")
-        
-        total_lessons = len(lessons_db)
-        completed_count = len(st.session_state.completed_lessons)
-        st.markdown(f"### Overall Academy Progress ({completed_count}/{total_lessons} Completed)")
-        st.progress(completed_count / total_lessons if total_lessons > 0 else 0)
-        st.markdown("---")
-        
-        for lesson_title, data in lessons_db.items():
-            col1, col2 = st.columns([4, 1])
-            with col1:
-                is_done = lesson_title in st.session_state.completed_lessons
-                status_icon = "✅ " if is_done else "🔒 "
-                st.markdown(f"### {status_icon}{lesson_title}")
-                st.write(data["concept"])
-            with col2:
-                btn_label = "Review 🔄" if is_done else "Start Module 🚀"
-                if st.button(btn_label, key=lesson_title):
-                    st.session_state.active_lesson = lesson_title
-                    st.session_state.question_index = 0
-                    st.rerun()
-            st.markdown("---")
-            
-    else:
-        lesson_key = st.session_state.active_lesson
-        current_lesson = lessons_db[lesson_key]
-        q_idx = st.session_state.question_index
-        total_q = len(current_lesson['questions'])
-        
-        if st.button("⬅️ Back to Roadmap"):
-            st.session_state.active_lesson = None
-            st.session_state.question_index = 0
-            st.rerun()
-            
-        st.title(f"📖 {lesson_key}")
-        st.progress(q_idx / total_q)
-        st.write(f"Question {q_idx + 1} of {total_q}")
-        
-        q_data = current_lesson["questions"][q_idx]
-        
-        st.markdown(f"""
-        <div class="quiz-box">
-            <h4 style="color: #2962ff;">🧩 Challenge</h4>
-            <p style="font-size: 1.1rem; font-weight: bold;">{q_data['question']}</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        user_choice = st.radio("Select your answer:", q_data["options"], key=f"q_{q_idx}")
-        
-        if st.button("Check Answer ✅"):
-            if user_choice == q_data["answer"]:
-                st.success("🎉 Correct! Great job!")
-                st.session_state.xp += 15
-                
-                if q_idx + 1 < total_q:
-                    st.session_state.question_index += 1
-                    st.rerun()
-                else:
-                    st.balloons()
-                    st.success("🏆 Module Completed!")
-                    st.session_state.completed_lessons.add(lesson_key)
-                    st.session_state.active_lesson = None
-                    st.session_state.question_index = 0
-            else:
-                st.error("❌ Incorrect! Try again.")
-                st.session_state.hearts = max(0, st.session_state.hearts - 1)
+        # --- MONTH 1, WEEK 2: Support & Resistance Zones ---
+        "M1 W2 D1: Identifying Support Floors": {
+            "concept": "Finding historical price levels where buying pressure overcomes selling pressure.",
+            "questions": [
+                {"question": "What is a Support level?", "options": ["A price ceiling", "A price floor where buyers historically step in", "A guaranteed profit point", "A tax bracket"], "answer": "A price floor where buyers historically step in"},
+                {"question": "Why do support zones work?", "options": ["Because human traders and algorithms remember historical reaction points", "Magic", "Government mandates", "Random chance"], "answer": "Because human traders and algorithms remember historical reaction points"},
+                {"question": "How many touches make a valid support level more reliable?", "options": ["1 touch", "Multiple touches over time", "Zero touches", "1000 touches"], "answer": "Multiple touches over time"},
+                {"question": "What happens when price breaks below strong support?", "options": ["It usually accelerates downward", "It bounces to infinity", "Trading stops", "Nothing"], "answer": "It usually accelerates downward"},
+                {"question": "Where should stop losses be placed relative to support?", "options": ["Right on the line", "Just below the support zone invalidation point", "At the top", "Never use them"], "answer": "Just below the support zone invalidation point"}
+            ]
+        },
+        "M1 W2 D2: Identifying Resistance Ceilings": {
+            "concept": "Locating structural barriers where selling pressure halts upward momentum.",
+            "questions": [
+                {"question": "What happens when price approaches Resistance?", "options": ["Sellers step in and push price down", "Buyers panic buy", "Volume disappears", "Exchanges close"], "answer": "Sellers step in and push price down"},
+                {"question": "What forms a resistance ceiling?", "options": ["Previous swing highs where profit-taking occurred", "Moving averages only", "Random lines", "Exchange fees"], "answer": "Previous swing highs where profit-taking occurred"},
+                {"question": "What indicates a weak resistance level?", "options": ["High volume rejection", "A quick touch with low volume that easily punches through", "10 years of history", "Major news"], "answer": "A quick touch with low volume that easily punches through"},
+                {"question": "How do short sellers use resistance?", "options": ["To enter short positions with tight stop-losses above the ceiling", "To buy long", "To ignore the market", "To calculate taxes"], "answer": "To enter short positions with tight stop-losses above the ceiling"},
+                {"question": "What is a double top pattern?", "options": ["Two peaks near the same resistance level signaling potential reversal", "A bullish continuation", "An indicator error", "High leverage"], "answer": "Two peaks near the same resistance level signaling potential reversal"}
+            ]
+        },
+        "M1 W2 D3: Polarity Swaps (Support Becomes Resistance)": {
+            "concept": "Mastering structural flips when broken levels switch roles.",
+            "questions": [
+                {"question": "What is a polarity swap?", "options": ["When broken support turns into new resistance (or vice versa)", "A broker glitch", "A tax swap", "A leverage flip"], "answer": "When broken support turns into new resistance (or vice versa)"},
+                {"question": "Why does a polarity swap occur?", "options": ["Traders who bought at support are now trapped and want to exit at breakeven", "Random chance", "Exchange rules", "Algorithm updates"], "answer": "Traders who bought at support are now trapped and want to exit at breakeven"},
+                {"question": "How do breakout traders trade a polarity swap?", "options": ["Wait for a retest of the broken level to enter in the direction of the breakout", "Sell immediately", "Close account", "Ignore it"], "answer": "Wait for a retest of the broken level to enter in the direction of the breakout"},
+                {"question": "What confirms a successful polarity flip retest?", "options": ["A rejection candle forming on low volume retest", "High volume crash", "Immediate liquidation", "Market closure"], "answer": "A rejection candle forming on low volume retest"},
+                {"question": "What is a failed polarity flip called?", "options": ["A fakeout or false breakout", "A golden cross", "A margin call", "A dividend"], "answer": "A fakeout or false breakout"}
+            ]
+        },
+        "M1 W2 D4: Psychological Round Numbers": {
+            "concept": "Recognizing how human behavior impacts round integer pricing barriers.",
+            "questions": [
+                {"question": "Why do round numbers (e.g., $100, $50,000) act as barriers?", "options": ["Human psychological clustering of orders", "Code constraints", "Government limits", "Zero volume"], "answer": "Human psychological clustering of orders"},
+                {"question": "Where do retail limit orders often cluster?", "options": ["At exact round numbers", "Random decimals", "Nowhere", "Only negative numbers"], "answer": "At exact round numbers"},
+                {"question": "What is 'front-running' a round number?", "options": ["Placing orders slightly ahead of a psychological barrier", "Running fast", "Broker theft", "Illegal mining"], "answer": "Placing orders slightly ahead of a psychological barrier"},
+                {"question": "What happens after a major round number is decisively broken?", "options": ["Rapid momentum toward the next round target", "Market shutdown", "Zero volatility", "Permanent freeze"], "answer": "Rapid momentum toward the next round target"},
+                {"question": "Do institutional algorithms look at round numbers?", "options": ["Yes, they target liquidity pools clustered around them", "No, they ignore numbers", "Only on weekends", "Only in forex"], "answer": "Yes, they target liquidity pools clustered around them"}
+            ]
+        },
+        "M1 W2 D5: Trendlines & Dynamic Channels": {
+            "concept": "Drawing diagonal support and resistance slopes.",
+            "questions": [
+                {"question": "How many swing points are required to draw a valid trendline?", "options": ["At least 2 points, with a 3rd point confirming validation", "1 point", "100 points", "Zero points"], "answer": "At least 2 points, with a 3rd point confirming validation"},
+                {"question": "What does an ascending trendline represent?", "options": ["Rising support where buyers step in higher each time", "A bear market", "Flat range", "A crash"], "answer": "Rising support where buyers step in higher each time"},
+                {"question": "What is a parallel price channel?", "options": ["Support and resistance trendlines running parallel to contain price action", "An indicator error", "A broker fee", "A margin limit"], "answer": "Support and resistance trendlines running parallel to contain price action"},
+                {"question": "How do traders use channel boundaries?", "options": ["Buy near channel support, take profit near channel resistance", "Ignore them", "Sell everything", "Use 100x leverage"], "answer": "Buy near channel support, take profit near channel resistance"},
+                {"question": "What does a trendline break signal?", "options": ["Potential trend exhaustion or reversal", "Guaranteed profit", "Exchange update", "System glitch"], "answer": "Potential trend exhaustion or reversal"}
+            ]
+        },
 
-elif page == "Global Scoreboard":
-    st.title("🏆 TradeX Global Scoreboard")
-    scoreboard_data = pd.DataFrame([
-        {"Rank": 1, "Trader": "CryptoAlpha", "XP": 3450, "Streak": 45},
-        {"Rank": 2, "Trader": "BullishSzn", "XP": 2980, "Streak": 30},
-        {"Rank": 3, "Trader": "You (TradeX User)", "XP": st.session_state.xp, "Streak": st.session_state.streak}
-    ])
-    st.table(scoreboard_data)
-
-elif page == "Markets":
-    st.title("Markets")
-    st.info("Live market data feed active.")
-
-elif page == "Paper Trading":
-    st.title("Paper Trading Simulator")
-    st.info("Simulated trade execution engine ready.")
-        
+        # --- MONTH 1, WEEK 3: Candlestick Pattern Recognition ---
+        "M1 W3 D1: Single Candlestick Rejections (Hammers & Shooting Stars)": {
+            "concept": "Decoding wicks and body structures for immediate reversal signals.",
+            "questions": [
+                {"question": "What does a long lower wick on a Hammer indicate?", "options": ["Price rejection and aggressive buyer defense at lows", "Extreme selling", "Market closure", "Zero volume"], "answer": "Price rejection and aggressive buyer defense at lows"},
+                {"question": "Where should a valid Hammer appear for a bullish setup?", "options": ["At the bottom of a downtrend near support", "At the top of a bull run", "In a flat chop", "On a 1-second chart"], "answer": "At the bottom of a downtrend near support"},
+                {"question": "What is a Shooting Star candle?", "options": ["A bearish reversal candle with a long upper wick at resistance", "A bullish breakout", "A moving average", "A volume spike"], "answer": "A bearish reversal candle with a long upper wick at resistance"},
+                {"question": "What does the body size of a classic hammer look 
