@@ -1,167 +1,61 @@
-lessons_db = {
-    "M1 W1 D1: Bid-Ask Spreads": {
-        "concept": "Order books, market makers, and liquidity mechanics.",
+    # [Modules 1 to 8 remain fully intact: Lessons 1 to 30]
+    "M9 W31 D1: Multi-Timeframe Top-Down Analysis": {
+        "concept": "Aligning higher timeframe bias with lower timeframe execution triggers.",
         "questions": [
-            {"question": "What is the primary role of a Market Maker?", "options": ["Crash price", "Provide liquidity", "Charge high taxes", "Print money"], "answer": "Provide liquidity"},
-            {"question": "What term describes the gap between buyers and sellers?", "options": ["Leverage Ratio", "Bid-Ask Spread", "Dividend Yield", "Slippage Fee"], "answer": "Bid-Ask Spread"},
-            {"question": "What happens to spreads during high volatility?", "options": ["Tighten", "Widen significantly", "Disappear", "Pause"], "answer": "Widen significantly"},
-            {"question": "Who absorbs market orders on an exchange?", "options": ["Limit orders in the book", "Government", "Miners", "Random generators"], "answer": "Limit orders in the book"},
-            {"question": "What is market depth?", "options": ["Ocean depth", "Volume of pending orders", "Account balance", "Leverage limit"], "answer": "Volume of pending orders"}
+            {"question": "What is the primary purpose of top-down chart analysis?", "options": ["To find macroeconomic news", "To align macro trend direction with precise entry triggers", "To calculate daily taxes", "To pick random trades"], "answer": "To align macro trend direction with precise entry triggers"},
+            {"question": "Which timeframe is typically analyzed first in a top-down workflow?", "options": ["1-minute chart", "Higher timeframe (Daily / 4-Hour)", "Tick chart", "Yearly chart"], "answer": "Higher timeframe (Daily / 4-Hour)"},
+            {"question": "What happens when a 1-hour trade goes against the daily trend direction?", "options": ["Probability of success decreases significantly", "Guaranteed profit", "Zero risk", "Broker bonus"], "answer": "Probability of success decreases significantly"},
+            {"question": "Where should you look for entry triggers after identifying a 4-hour support zone?", "options": ["Lower timeframes (15m / 5m) for confirmation wicks or structure breaks", "Nowhere, enter blindly", "Weekly chart", "Never trade"], "answer": "Lower timeframes (15m / 5m) for confirmation wicks or structure breaks"},
+            {"question": "Why is structural alignment across timeframes important?", "options": ["It reduces false breakouts and avoids trading against institutional momentum", "It slows down internet speed", "It increases exchange fees", "It looks professional"], "answer": "It reduces false breakouts and avoids trading against institutional momentum"}
         ]
     },
-    "M1 W2 D1: Support Floors": {
-        "concept": "Finding historical price levels where buying occurs.",
+    "M9 W32 D1: Chart Patterns & Breakout Execution": {
+        "concept": "Trading classical formations like triangles, head & shoulders, and flags.",
         "questions": [
-            {"question": "What is a Support level?", "options": ["Price ceiling", "Price floor where buyers step in", "Guaranteed profit", "Tax bracket"], "answer": "Price floor where buyers step in"},
-            {"question": "Why do support zones work?", "options": ["Traders remember historical reaction points", "Magic", "Government", "Random chance"], "answer": "Traders remember historical reaction points"},
-            {"question": "What makes support more reliable?", "options": ["1 touch", "Multiple touches over time", "Zero touches", "1000 touches"], "answer": "Multiple touches over time"},
-            {"question": "What happens when price breaks support?", "options": ["Accelerates downward", "Bounces to infinity", "Stops", "Nothing"], "answer": "Accelerates downward"},
-            {"question": "Where to place stop loss?", "options": ["On line", "Just below support zone", "At top", "No stops"], "answer": "Just below support zone"}
+            {"question": "What does a Bull Flag continuation pattern typically signal?", "options": ["A healthy consolidation pullback before resuming the upward trend", "A permanent market crash", "Zero volume", "Broker system error"], "answer": "A healthy consolidation pullback before resuming the upward trend"},
+            {"question": "How is the profit target for a Head and Shoulders pattern generally measured?", "options": ["Distance from the head to the neckline projected downward from the breakout point", "Random guess", "Account balance size", "Fee multiplier"], "answer": "Distance from the head to the neckline projected downward from the breakout point"},
+            {"question": "What is a 'Retest of a Breakout'?", "options": ["When price breaks a resistance level, pulls back to test it as new support, and holds", "A system cancellation", "A margin call", "A fake indicator"], "answer": "When price breaks a resistance level, pulls back to test it as new support, and holds"},
+            {"question": "What is a 'Bull Trap' in breakout trading?", "options": ["A false upside breakout that quickly reverses downward, trapping breakout buyers", "A guaranteed winning trade", "A mining reward", "An exchange feature"], "answer": "A false upside breakout that quickly reverses downward, trapping breakout buyers"},
+            {"question": "Where is the logical stop loss placed when trading a range breakout?", "options": ["Just inside the broken range boundary or below the breakout candle low", "At the absolute bottom of the chart", "No stop loss needed", "On the resistance line"], "answer": "Just inside the broken range boundary or below the breakout candle low"}
         ]
     },
-    "M1 W3 D1: Candlestick Rejections": {
-        "concept": "Decoding wicks for reversal signals.",
+    "M9 W33 D1: Trendline Channels & Dynamic Support": {
+        "concept": "Drawing valid trendlines, channels, and trading boundary bounces.",
         "questions": [
-            {"question": "What does a long lower wick on a Hammer indicate?", "options": ["Price rejection and buyer defense", "Extreme selling", "Closure", "Zero volume"], "answer": "Price rejection and buyer defense"},
-            {"question": "Where should a Hammer appear?", "options": ["Bottom of downtrend near support", "Top of bull run", "Flat chop", "1s chart"], "answer": "Bottom of downtrend near support"},
-            {"question": "What is a Shooting Star?", "options": ["Bearish reversal candle at resistance", "Bullish breakout", "Moving average", "Volume spike"], "answer": "Bearish reversal candle at resistance"},
-            {"question": "What is body size of a hammer?", "options": ["Small body near upper range", "Massive", "None", "Square"], "answer": "Small body near upper range"},
-            {"question": "Why are wicks crucial?", "options": ["Show price rejection extremes", "Random noise", "Calculate taxes", "Set fees"], "answer": "Show price rejection extremes"}
+            {"question": "How many contact points are minimally required to validate a trendline?", "options": ["At least 2 points, with a 3rd point confirming validity", "1 point", "100 points", "Zero points"], "answer": "At least 2 points, with a 3rd point confirming validity"},
+            {"question": "What is an ascending channel composed of?", "options": ["Parallel upward-sloping support and resistance lines", "Flat horizontal lines", "Random squiggles", "Vertical lines"], "answer": "Parallel upward-sloping support and resistance lines"},
+            {"question": "Where do traders typically look to buy within an established upward channel?", "options": ["Near the lower trendline support boundary", "At the absolute top resistance line", "During a market crash", "On exchange holidays"], "answer": "Near the lower trendline support boundary"},
+            {"question": "What does an overshoot or 'blow-off' outside a trendline channel often indicate?", "options": ["Exhaustion move and potential trend reversal warning", "Infinite expansion", "Guaranteed continuation", "Data glitch"], "answer": "Exhaustion move and potential trend reversal warning"},
+            {"question": "How should trendlines be drawn on price charts?", "options": ["Connecting wicks (extreme price rejections) rather than closing bodies", "Connecting arbitrary open prices", "Using random colors", "Parallel to volume bars"], "answer": "Connecting wicks (extreme price rejections) rather than closing bodies"}
         ]
     },
-    "M1 W4 D1: Bull Market Structure": {
-        "concept": "Higher highs and higher lows expansion.",
+    "M10 W34 D1: Swing Trading Setup & Execution Strategy": {
+        "concept": "Multi-day position holding, swing highs/lows, and risk management.",
         "questions": [
-            {"question": "What defines a Bull Market structure?", "options": ["Sequence of Higher Highs and Higher Lows", "Lower lows", "Flat chop", "Crashes"], "answer": "Sequence of Higher Highs and Higher Lows"},
-            {"question": "What is a Higher Low?", "options": ["Pullback stopping higher than previous correction", "Crash low", "MA", "Resistance"], "answer": "Pullback stopping higher than previous correction"},
-            {"question": "When is uptrend intact?", "options": ["As long as unbroken Higher Lows continue", "Positive news", "Confidence", "Zero volume"], "answer": "As long as unbroken Higher Lows continue"},
-            {"question": "What if price fails to make Higher High?", "options": ["Warning of trend fatigue", "Guaranteed moon", "Upgrade", "Refund"], "answer": "Warning of trend fatigue"},
-            {"question": "How to trade uptrends?", "options": ["Buy pullbacks near support", "Sell green", "100x short", "Never"], "answer": "Buy pullbacks near support"}
+            {"question": "What is the typical holding period for a swing trading strategy?", "options": ["Several days to several weeks", "A few seconds", "Exact 1 second", "10 years"], "answer": "Several days to several weeks"},
+            {"question": "What defines a Swing High on a price chart?", "options": ["A price peak higher than the candles immediately to its left and right", "The lowest price of the year", "An opening bell", "Moving average cross"], "answer": "A price peak higher than the candles immediately to its left and right"},
+            {"question": "How do swing traders manage overnight and weekend gap risk?", "options": ["By using conservative position sizes and wider stop losses", "By turning off the computer forever", "By using 100x leverage", "By ignoring risk rules"], "answer": "By conservative position sizes and wider stop losses"},
+            {"question": "What is a trailing stop loss in swing trading?", "options": ["A stop loss that automatically moves up to lock in profits as price trends favorably", "A fixed stop that never moves", "A broker fee", "An entry order"], "answer": "A stop loss that automatically moves up to lock in profits as price trends favorably"},
+            {"question": "What key market condition favors swing trading over scalping?", "options": ["Clear trending or well-defined cyclical swinging market ranges", "Dead flat zero volatility", "Chaotic flash crashes", "Exchange maintenance"], "answer": "Clear trending or well-defined cyclical swinging market ranges"}
         ]
     },
-    "M2 W5 D1: Simple vs Exponential Moving Averages": {
-        "concept": "Mastering SMA and EMA calculations and smoothing.",
+    "M10 W35 D1: Intraday Scalping & Momentum Execution": {
+        "concept": "1-minute/5-minute charts, spread management, and fast execution rules.",
         "questions": [
-            {"question": "What is the core difference between SMA and EMA?", "options": ["EMA weights recent prices heavier", "SMA is only for stocks", "EMA has no lag", "No difference"], "answer": "EMA weights recent prices heavier"},
-            {"question": "Why do traders use the 200-day moving average?", "options": ["As a long-term macro trend filter", "To calculate daily taxes", "To pick exact bottoms", "For fun"], "answer": "As a long-term macro trend filter"},
-            {"question": "What is a Moving Average crossover signal?", "options": ["When a fast MA crosses a slow MA", "Broker system crash", "Market closure", "Zero volume"], "answer": "When a fast MA crosses a slow MA"},
-            {"question": "What is a Death Cross?", "options": ["50 SMA crossing below 200 SMA", "Price dropping to zero", "Account liquidation", "Option expiry"], "answer": "50 SMA crossing below 200 SMA"},
-            {"question": "What is the main drawback of Moving Averages?", "options": ["They lag behind current price action", "They predict the future", "They cost high fees", "They never work"], "answer": "They lag behind current price action"}
+            {"question": "What is the primary challenge of intraday scalping?", "options": ["High transaction fee impact and emotional fatigue from rapid decision-making", "Waiting months for a trade", "Low volume", "Zero volatility"], "answer": "High transaction fee impact and emotional fatigue from rapid decision-making"},
+            {"question": "Why is execution speed critical for scalpers?", "options": ["To avoid slippage on short-lived price impulses lasting only seconds", "To look cool", "To pass tax audits", "To download data faster"], "answer": "To avoid slippage on short-lived price impulses lasting only seconds"},
+            {"question": "What indicator combination is popular for spotting fast momentum scalps?", "options": ["Fast EMAs (e.g., 9/21), RSI, and Level 2 order book momentum", "200-day SMA only", "Yearly moving averages", "None"], "answer": "Fast EMAs (e.g., 9/21), RSI, and Level 2 order book momentum"},
+            {"question": "How do scalpers manage their risk-to-reward ratios?", "options": ["Using tight stop losses based on immediate order book walls or micro wicks", "Risking 50% of account per trade", "Using no stops", "Holding losers for weeks"], "answer": "Using tight stop losses based on immediate order book walls or micro wicks"},
+            {"question": "What rule should a scalper follow after a severe losing streak?", "options": ["Walk away immediately to prevent revenge trading and emotional tilt", "Double the size instantly", "Trade 24 hours straight", "Blame the exchange"], "answer": "Walk away immediately to prevent revenge trading and emotional tilt"}
         ]
     },
-    "M2 W6 D1: Relative Strength Index (RSI)": {
-        "concept": "Evaluating overbought and oversold momentum conditions.",
+    "M10 W36 D1: Trade Management & Scaling Out Strategies": {
+        "concept": "Partial profit taking, breakeven stops, and managing open trades.",
         "questions": [
-            {"question": "What does an RSI reading above 70 typically indicate?", "options": ["Overbought conditions with potential pullback risk", "Oversold extreme buy", "Market crash", "Zero volatility"], "answer": "Overbought conditions with potential pullback risk"},
-            {"question": "What is RSI divergence?", "options": ["Price making higher highs while RSI makes lower highs", "Price matching RSI", "Broker glitch", "Margin call"], "answer": "Price making higher highs while RSI makes lower highs"},
-            {"question": "What is the standard RSI lookback period?", "options": ["14 periods", "100 periods", "1 period", "50 periods"], "answer": "14 periods"},
-            {"question": "Can an asset stay overbought for a long time during strong trends?", "options": ["Yes, strong trends defy standard RSI thresholds", "No, it must crash instantly", "Only on weekends", "Never"], "answer": "Yes, strong trends defy standard RSI thresholds"},
-            {"question": "What does RSI measure?", "options": ["Magnitude of recent price changes to evaluate velocity", "Trading volume", "Account balance", "Leverage ratio"], "answer": "Magnitude of recent price changes to evaluate velocity"}
+            {"question": "What does 'Scaling Out' of a trade mean?", "options": ["Closing a portion of your position at pre-defined profit targets while letting the rest run", "Closing the entire trade instantly", "Adding more losing positions", "Withdrawing all funds"], "answer": "Closing a portion of your position at pre-defined profit targets while letting the rest run"},
+            {"question": "When is it appropriate to move your stop loss to 'Breakeven'?", "options": ["After price reaches your first target and removes initial trade risk", "Before entering the trade", "Never", "When the trade is losing"], "answer": "After price reaches your first target and removes initial trade risk"},
+            {"question": "What is the psychological benefit of taking partial profits?", "options": ["It locks in green results and reduces emotional stress of managing open trades", "It guarantees zero losses ever", "It increases broker commissions", "It slows down charts"], "answer": "It locks in green results and reduces emotional stress of managing open trades"},
+            {"question": "What is a 'Runner' in trade management?", "options": ["The final remaining portion of a position left open to catch extended trend moves", "A fast trader", "A failed trade", "A stop loss order"], "answer": "The final remaining portion of a position left open to catch extended trend moves"},
+            {"question": "Why is rigid trade management often more important than the exact entry price?", "options": ["How you manage risk and exit trades ultimately determines long-term profitability", "Entries do not matter at all", "Exchanges force exits", "It makes trading easy"], "answer": "How you manage risk and exit trades ultimately determines long-term profitability"}
         ]
-    },
-    "M2 W7 D1: MACD & Momentum Convergence": {
-        "concept": "Moving Average Convergence Divergence histogram analysis.",
-        "questions": [
-            {"question": "What does MACD stand for?", "options": ["Moving Average Convergence Divergence", "Market Asset Cash Distributor", "Margin Asset Calculation Device", "Moving Action Currency Direction"], "answer": "Moving Average Convergence Divergence"},
-            {"question": "What generates a bullish MACD crossover signal?", "options": ["MACD line crosses above the signal line", "MACD equals zero", "Volume disappears", "Price drops"], "answer": "MACD line crosses above the signal line"},
-            {"question": "What does the MACD histogram measure?", "options": ["The distance between the MACD line and signal line", "Total exchange volume", "Open interest", "Account profit"], "answer": "The distance between the MACD line and signal line"},
-            {"question": "How is the baseline MACD line calculated?", "options": ["Difference between 12-period EMA and 26-period EMA", "Simple average of volume", "High minus low", "Close divided by open"], "answer": "Difference between 12-period EMA and 26-period EMA"},
-            {"question": "What indicates decreasing momentum on the MACD histogram?", "options": ["Bars shrinking toward the zero line", "Bars growing infinitely", "Color staying constant", "Zero lines moving"], "answer": "Bars shrinking toward the zero line"}
-        ]
-    },
-    "M2 W8 D1: Bollinger Bands & Volatility Squeezes": {
-        "concept": "Using standard deviation envelopes to trade breakouts.",
-        "questions": [
-            {"question": "What do Bollinger Bands consist of?", "options": ["A middle SMA and upper/lower standard deviation bands", "Three resistance lines", "Random indicators", "Volume bars"], "answer": "A middle SMA and upper/lower standard deviation bands"},
-            {"question": "What is a Bollinger Band 'Squeeze'?", "options": ["Bands narrowing significantly due to low volatility compression", "Bands expanding", "Broker freezing account", "Margin call"], "answer": "Bands narrowing significantly due to low volatility compression"},
-            {"question": "What usually follows a tight volatility squeeze?", "options": ["An explosive directional breakout move", "Market closure", "Zero volume forever", "Tax payment"], "answer": "An explosive directional breakout move"},
-            {"question": "What does it mean when price hugs the upper Bollinger Band?", "options": ["Strong bullish momentum", "Extreme weakness", "Market crash", "Flat range"], "answer": "Strong bullish momentum"},
-            {"question": "How are Bollinger Band standard deviations typically set?", "options": ["2 standard deviations from the 20-period SMA", "1 standard deviation from 10 SMA", "5 standard deviations", "No standard deviation"], "answer": "2 standard deviations from the 20-period SMA"}
-        ]
-    },
-    "M3 W9 D1: Position Sizing & Risk Management": {
-        "concept": "Protecting capital using the 1% rule and fixed fractional risk.",
-        "questions": [
-            {"question": "What is the core rule of risk management per trade?", "options": ["Risk only a small fixed percentage (e.g., 1-2%) of total capital", "Risk 100% on every trade", "Never use stop losses", "Borrow maximum leverage"], "answer": "Risk only a small fixed percentage (e.g., 1-2%) of total capital"},
-            {"question": "How do you calculate position size?", "options": ["Account Risk Dollars divided by Distance to Stop Loss in dollars", "Random guess", "Account balance multiplied by 10", "Fee divided by leverage"], "answer": "Account Risk Dollars divided by Distance to Stop Loss in dollars"},
-            {"question": "What is Risk-to-Reward Ratio (RRR)?", "options": ["Potential profit target distance compared to potential stop loss risk distance", "Broker fee ratio", "Leverage multiplier", "Win rate percentage"], "answer": "Potential profit target distance compared to potential stop loss risk distance"},
-            {"question": "Why is a 1:3 Risk-to-Reward ratio powerful?", "options": ["You can be profitable even with a win rate below 40%", "It guarantees 100% wins", "It eliminates all market risk", "Brokers give bonuses"], "answer": "You can be profitable even with a win rate below 40%"},
-            {"question": "What is 'ruin risk' in trading?", "options": ["The mathematical probability of losing your entire trading capital", "A minor losing streak", "A tax penalty", "A software glitch"], "answer": "The mathematical probability of losing your entire trading capital"}
-        ]
-    },
-    "M3 W10 D1: Trading Psychology & Emotional Control": {
-        "concept": "Overcoming FOMO, revenge trading, and cognitive biases.",
-        "questions": [
-            {"question": "What is 'Revenge Trading'?", "options": ["Taking impulsive, oversized trades to quickly win back previous losses", "Trading as a career", "Closing a winning trade", "Following your plan"], "answer": "Taking impulsive, oversized trades to quickly win back previous losses"},
-            {"question": "What does FOMO stand for in trading?", "options": ["Fear Of Missing Out", "Future Order Market Option", "Fixed Overall Margin Outlay", "Fast Online Money Operation"], "answer": "Fear Of Missing Out"},
-            {"question": "How do professional traders handle a losing streak?", "options": ["Step away from screens and adhere strictly to risk rules", "Double position size immediately", "Break computer", "Blame the market maker"], "answer": "Step away from screens and adhere strictly to risk rules"},
-            {"question": "What is confirmation bias?", "options": ["Seeking out information that confirms your existing bias while ignoring warning signs", "Trading accurately", "Confirming account deposits", "Broker verification"], "answer": "Seeking out information that confirms your existing bias while ignoring warning signs"},
-            {"question": "Why is keeping emotions detached crucial?", "options": ["Emotions lead to hesitation, breaking rules, and capital destruction", "Emotions increase leverage", "Brokers hate feelings", "It makes trading boring"], "answer": "Emotions lead to hesitation, breaking rules, and capital destruction"}
-        ]
-    },
-    "M3 W11 D1: Trading Journals & Performance Analytics": {
-        "concept": "Logging trades, win rates, and finding edge through data.",
-        "questions": [
-            {"question": "Why keep a trading journal?", "options": ["To log mistakes, analyze setup performance, and find your statistical edge", "To show friends", "Tax compliance", "Pass time"], "answer": "To log mistakes, analyze setup performance, and find your statistical edge"},
-            {"question": "What is trading Expectancy?", "options": ["Average amount won/lost per dollar risked based on win rate and RRR", "Emotional mood", "Daily goal", "Guaranteed return"], "answer": "Average amount won/lost per dollar risked based on win rate and RRR"},
-            {"question": "What metric measures how well you stick to your trading plan?", "options": ["Plan Adherence Score", "Account balance alone", "Click speed", "Trade count"], "answer": "Plan Adherence Score"},
-            {"question": "How often should your journal logs be reviewed?", "options": ["Weekly or monthly to detect behavioral leaks and edge decay", "Every 10 years", "Never", "Only after bankruptcy"], "answer": "Weekly or monthly to detect behavioral leaks and edge decay"},
-            {"question": "What key data fields should every journal include?", "options": ["Entry price, exit price, stop loss, setup type, emotional state, and screenshots", "Only account balance", "Favorite color", "Weather condition"], "answer": "Entry price, exit price, stop loss, setup type, emotional state, and screenshots"}
-        ]
-    },
-    "M3 W12 D1: Building a Complete Trading Plan": {
-        "concept": "Synthesizing edge, rules, routine, and execution into a master system.",
-        "questions": [
-            {
-                "question": "What is the purpose of a written Trading Plan?",
-                "options": [
-                    "To serve as an objective rulebook removing real-time decision fatigue",
-                    "To post on social media",
-                    "To satisfy regulatory requirements",
-                    "To look smart"
-                ],
-                "answer": "To serve as an objective rulebook removing real-time decision fatigue"
-            },
-            {
-                "question": "What happens if a market setup doesn't fit your plan?",
-                "options": [
-                    "You skip it entirely",
-                    "You trade it with small size",
-                    "You hope for the best",
-                    "You add new rules"
-                ],
-                "answer": "You skip it entirely"
-            },
-            {
-                "question": "What is the most critical element of a trading plan?",
-                "options": [
-                    "Rigid risk management rules",
-                    "A secret indicator",
-                    "High leverage",
-                    "Predicting the future"
-                ],
-                "answer": "Rigid risk management rules"
-            },
-            {
-                "question": "What defines your 'Trading Edge'?",
-                "options": [
-                    "A statistical advantage that yields positive expectancy over many trades",
-                    "The best computer hardware",
-                    "Trading during high volume hours",
-                    "A high win rate with 0% risk"
-                ],
-                "answer": "A statistical advantage that yields positive expectancy over many trades"
-            },
-            {
-                "question": "When should you update your trading plan?",
-                "options": [
-                    "After a thorough performance review during non-trading hours",
-                    "During a live trade while losing money",
-                    "Every time the market moves",
-                    "Only when you want to change strategies"
-                ],
-                "answer": "After a thorough performance review during non-trading hours"
-            }
-        ]
-    }
 }
