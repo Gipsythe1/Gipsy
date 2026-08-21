@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from curriculum import lessons_db
+from utils.curriculum import lessons_db
 
 
 # Page Configuration
@@ -64,6 +64,14 @@ st.markdown("""
 # Sidebar Navigation
 st.sidebar.markdown("## TRADE<span style='color: #2962ff;'>X</span>", unsafe_allow_html=True)
 page = st.sidebar.radio("Navigation", ["Dashboard", "Trading Academy (3-Month Roadmap)", "Global Scoreboard", "Markets", "Paper Trading"])
+
+# Sidebar Academy Progress Tracker
+if len(lessons_db) > 0:
+    progress_val = len(st.session_state.completed_lessons) / len(lessons_db)
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("**Academy Progress**")
+    st.sidebar.progress(progress_val)
+    st.sidebar.caption(f"{len(st.session_state.completed_lessons)} of {len(lessons_db)} modules completed")
 
 if page == "Dashboard":
     st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>WELCOME BACK</p>", unsafe_allow_html=True)
@@ -176,4 +184,4 @@ elif page == "Paper Trading":
     amount = st.number_input("Amount", 100, 10000)
     if st.button("Execute Trade"):
         st.write(f"Simulated order placed for {amount} of {ticker}")
-                        
+            
