@@ -157,8 +157,13 @@ lessons_db = {
             {"question": "An RSI reading above 70 typically indicates:", "options": ["Oversold conditions", "Overbought conditions, suggesting potential pullback", "Zero momentum", "Exact fair value"], "answer": "Overbought conditions, suggesting potential pullback"},
             {"question": "What is RSI divergence?", "options": ["When RSI and price move in opposite directions, signaling potential reversal", "When RSI equals 50", "A broker error", "High trading volume"], "answer": "When RSI and price move in opposite directions, signaling potential reversal"}
         ]
-    },
+    },  # <--- Make sure this comma is present right here!
     "W7L1: MACD (Moving Average Convergence Divergence)": {
         "concept": "Tracking momentum and trend changes using relationship between two exponential moving averages.",
         "questions": [
-            {"question": "What components make up the MACD indicator?"
+            {"question": "What components make up the MACD indicator?", "options": ["MACD line, Signal line, and Histogram", "Support, resistance, and volume", "Open, high, low, close", "Bid and ask spread"], "answer": "MACD line, Signal line, and Histogram"},
+            {"question": "When does a bullish MACD crossover occur?", "options": ["When the MACD line crosses below the signal line", "When the MACD line crosses above the signal line", "When histogram hits zero", "When volume disappears"], "answer": "When the MACD line crosses above the signal line"},
+            {"question": "What does the MACD histogram measure?", "options": ["The distance between the MACD line and the signal line", "Total daily exchange volume", "Account leverage", "Profit and loss"], "answer": "The distance between the MACD line and the signal line"}
+        ]
+    }
+    
