@@ -1,5 +1,6 @@
-Lessons_db = {
-    # [Modules 1 to 3 remain fully intact: 12 lessons total]
+# curriculum.py
+
+lessons_db = {
     "M1 W1 D1: Bid-Ask Spreads": {
         "concept": "Order books, market makers, and liquidity mechanics.",
         "questions": [
@@ -120,7 +121,6 @@ Lessons_db = {
             {"question": "When should you update your trading plan?", "options": ["After a thorough performance review during non-trading hours", "During a live trade while losing money", "Every time the market moves", "Only when you want to change strategies"], "answer": "After a thorough performance review during non-trading hours"}
         ]
     },
-    # [New Lessons M4 to M8: Lessons 13 through 30]
     "M4 W13 D1: Advanced Order Types & Iceberg Orders": {
         "concept": "Hidden liquidity, iceberg execution, and time-in-force instructions.",
         "questions": [
@@ -138,4 +138,6 @@ Lessons_db = {
             {"question": "What is the Point of Control (POC)?", "options": ["The price level with the highest traded volume", "The lowest price of the day", "The opening price", "The liquidation price"], "answer": "The price level with the highest traded volume"},
             {"question": "What is a Volume Node (High Volume Node)?", "options": ["An area where massive amounts of business and acceptance occurred", "A dead zone", "A gap in the chart", "A scam wick"], "answer": "An area where massive amounts of business and acceptance occurred"},
             {"question": "What does a Low Volume Node (LVN) represent?", "options": ["A price area of rejection where price tends to move quickly through", "Maximum liquidity accumulation", "Strong support floor", "Market maker base"], "answer": "A price area of rejection where price tends to move quickly through"},
-            {"question": "How do traders use the Value Area High (VAH) and Low (VAL)?", "options": ["To define where 70% of total session volume was transacted", "To calculate taxes", "To set leverage multipliers", "To pick
+            {"question": "How do traders use the Value Area High (VAH) and Low (VAL)?", "options": ["To define where 70% of total session volume was transacted", "To calculate taxes", "To set leverage multipliers", "To pick stocks"], "answer": "To define where 70% of total session volume was transacted"}
+        ]
+   
