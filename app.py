@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from curriculum import lessons_db
 
+
 # Page Configuration
 st.set_page_config(
     page_title="TradeX - 3-Month Trading Academy",
