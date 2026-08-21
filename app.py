@@ -41,7 +41,7 @@ lessons_db = {
         "questions": [
             {"question": "On a standard green (bullish) candle, what is the bottom of the solid body?", "options": ["The Close", "The Open", "The High", "The absolute low"], "answer": "The Open"},
             {"question": "What do long upper wicks (shadows) indicate?", "options": ["Strong buying pressure", "Selling pressure rejecting higher prices", "Market holiday", "Zero volatility"], "answer": "Selling pressure rejecting higher prices"},
-            {"question": "What does a candle with a very small body and long wicks on both sides represent?", "options": ["Strong trend continuation", "Indeccision in the market", "Guaranteed market reversal", "Instant liquidation"], "answer": "Indeccision in the market"}
+            {"question": "What does a candle with a very small body and long wicks on both sides represent?", "options": ["Strong trend continuation", "Indecision in the market", "Guaranteed market reversal", "Instant liquidation"], "answer": "Indecision in the market"}
         ]
     },
     "W2L2: Basic Market Structure & Trends": {
@@ -161,4 +161,4 @@ lessons_db = {
     "W7L1: MACD (Moving Average Convergence Divergence)": {
         "concept": "Tracking momentum and trend changes using relationship between two exponential moving averages.",
         "questions": [
-            {"question": "What are the components of the M
+            {"question": "What are the components of the MAC
