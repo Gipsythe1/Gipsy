@@ -9,9 +9,8 @@ st.set_page_config(
     layout="wide"
 )
 
-# Comprehensive 36-Lesson Curriculum Database
+# --- MONTH 1: Foundations & Market Mechanics ---
 lessons_db = {
-    # --- MONTH 1: Foundations & Market Mechanics ---
     "W1L1: Introduction to Financial Markets": {
         "concept": "Understanding how global markets work, asset classes (stocks, crypto, forex, commodities), and supply/demand.",
         "questions": [
@@ -107,9 +106,11 @@ lessons_db = {
             {"question": "Which metric measures the ratio of gross profits to gross losses?", "options": ["Profit Factor", "Sharpe Ratio", "P/E Ratio", "Dividend Yield"], "answer": "Profit Factor"},
             {"question": "What should you log alongside entry and exit prices?", "options": ["Your emotional state and reasoning for the trade", "Weather conditions", "Laptop battery percentage", "Coffee brand consumed"], "answer": "Your emotional state and reasoning for the trade"}
         ]
-    },
+    }
+}
 
-    # --- MONTH 2: Risk Management & Technical Analysis ---
+# --- MONTH 2: Risk Management & Technical Analysis ---
+month_2_lessons = {
     "W5L1: Risk-to-Reward Ratio (R:R)": {
         "concept": "Structuring trades so potential rewards significantly outweigh potential risks.",
         "questions": [
@@ -161,4 +162,4 @@ lessons_db = {
     "W7L1: MACD (Moving Average Convergence Divergence)": {
         "concept": "Tracking momentum and trend changes using relationship between two exponential moving averages.",
         "questions": [
-            {"question": "What components make up the MACD i
+            {"question": "What components make up the MACD indicator?", "options": ["MACD lin
