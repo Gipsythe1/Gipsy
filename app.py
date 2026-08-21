@@ -160,9 +160,61 @@ lessons_db = {
     },
     "W7L1: MACD (Moving Average Convergence Divergence)": {
         "concept": "Tracking momentum and trend changes using relationship between two exponential moving averages.",
+            "W6L3: Relative Strength Index (RSI)": {
+        "concept": "Measuring the speed and magnitude of recent price changes to evaluate overbought and oversold conditions.",
         "questions": [
-            {
-    "question": """What are the components of the MAC
-    layer in networking?"""
-            }
+            {"question": "What is the standard RSI threshold generally considered 'overbought'?", "options": ["Above 70", "Below 30", "Exactly 50", "100"], "answer": "Above 70"},
+            {"question": "What is bullish RSI divergence?", "options": ["RSI makes lower lows while price makes higher lows", "Price makes lower lows while RSI makes higher lows", "RSI stays at 50", "Price and RSI move in identical steps"], "answer": "Price makes lower lows while RSI makes higher lows"},
+            {"question": "Can an asset stay overbought for a long time during a strong trend?", "options": ["No, it must crash instantly", "Yes, strong trends can keep RSI elevated for extended periods", "RSI stops working entirely", "Brokers turn off trading"], "answer": "Yes, strong trends can keep RSI elevated for extended periods"}
+        ]
+    },
+    "W7L1: MACD (Moving Average Convergence Divergence)": {
+        "concept": "Tracking momentum and trend changes using the relationship between two exponential moving averages.",
+        "questions": [
+            {"question": "What components make up the MACD indicator?", "options": ["MACD line, Signal line, and Histogram", "Support, resistance, and volume", "Open, high, low, close", "Bid and ask spread"], "answer": "MACD line, Signal line, and Histogram"},
+            {"question": "When does a bullish MACD crossover occur?", "options": ["When the MACD line crosses below the signal line", "When the MACD line crosses above the signal line", "When histogram hits zero", "When volume disappears"], "answer": "When the MACD line crosses above the signal line"},
+            {"question": "What does the MACD histogram measure?", "options": ["The distance between the MACD line and the signal line", "Total daily exchange volume", "Account leverage", "Profit and loss"], "answer": "The distance between the MACD line and the signal line"}
+        ]
+    },
+    "W7L2: Bollinger Bands": {
+        "concept": "Measuring market volatility and relative price extremes using standard deviations around a moving average.",
+        "questions": [
+            {"question": "What happens to Bollinger Bands during periods of high market volatility?", "options": ["They squeeze together", "They widen apart", "They disappear", "They become completely flat"], "answer": "They widen apart"},
+            {"question": "What is a 'Bollinger Band Squeeze'?", "options": ["A period of low volatility where bands contract, often preceding an explosive breakout move", "A broker fee deduction", "An emergency trade closure", "A type of candlestick"], "answer": "A period of low volatility where bands contract, often preceding an explosive breakout move"},
+            {"question": "What does price touching or piercing the upper Bollinger Band suggest?", "options": ["The asset is completely dead", "Price is trading at a relative high compared to recent historical volatility", "Market is closed", "Guaranteed crash"], "answer": "Price is trading at a relative high compared to recent historical volatility"}
+        ]
+    },
+    "W7L3: Average True Range (ATR) & Volatility": {
+        "concept": "Quantifying market volatility to dynamically set stop losses and profit targets based on price action.",
+        "questions": [
+            {"question": "What does Average True Range (ATR) measure?", "options": ["Market volatility and average price range over a given period", "The total trend direction", "Trade execution speed", "Broker leverage limits"], "answer": "Market volatility and average price range over a given period"},
+            {"question": "How can a day trader use ATR?", "options": ["To pick winning stocks randomly", "To set dynamic stop-loss distances based on current market volatility", "To calculate taxes", "To check account balance"], "answer": "To set dynamic stop-loss distances based on current market volatility"},
+            {"question": "If ATR increases significantly, what does that indicate?", "options": ["Volatility is rising and price swings are getting larger", "The market has stopped moving", "Trading fees are lower", "Spreads are tightening"], "answer": "Volatility is rising and price swings are getting larger"}
+        ]
+    },
+    "W8L1: Introduction to Candlestick Reversal Patterns": {
+        "concept": "Identifying single and multi-candle formations like hammers and engulfing patterns signaling trend shifts.",
+        "questions": [
+            {"question": "What is a bullish engulfing pattern?", "options": ["A small green candle inside a red candle", "A large green body that completely engulfs or covers the previous red candle's body", "Two identical candles", "A market holiday indicator"], "answer": "A large green body that completely engulfs or covers the previous red candle's body"},
+            {"question": "What does a Hammer candlestick look like?", "options": ["Small body near the top with a long lower wick, appearing after a downtrend", "A giant block with no wicks", "Equal wicks on both sides", "A downward pointing arrow"], "answer": "Small body near the top with a long lower wick, appearing after a downtrend"},
+            {"question": "Where are reversal patterns most reliable?", "options": ["In the middle of nowhere", "At major key support or resistance levels", "On closed market days", "Randomly on 1-second charts"], "answer": "At major key support or resistance levels"}
+        ]
+    },
+    "W8L2: Continuation Patterns & Flags/Pennants": {
+        "concept": "Spotting brief consolidation channels within strong trends that precede trend resumption.",
+        "questions": [
+            {"question": "What is a 'bull flag' pattern?", "options": ["A major market crash", "A sharp pole-like price rise followed by a slight downward-sloping consolidation channel", "A government regulation", "An indicator error"], "answer": "A sharp pole-like price rise followed by a slight downward-sloping consolidation channel"},
+            {"question": "What does a continuation pattern tell a trader?", "options": ["The prevailing trend is likely to resume after a brief pause", "The trend is over forever", "The exchange is resetting", "Liquidity is zero"], "answer": "The prevailing trend is likely to resume after a brief pause"},
+            {"question": "What usually accompanies the breakout of a valid flag pattern?", "options": ["Falling volume", "Surging volume confirming participation", "Zero activity", "System errors"], "answer": "Surging volume confirming participation"}
+        ]
+    },
+    "W8L3: Chart Pattern Price Targets & Measurements": {
+        "concept": "Using geometric projections to calculate objective profit targets from breakout structures.",
+        "questions": [
+            {"question": "How do you typically measure a price target for a triangle or rectangle breakout?", "options": ["By guessing a random number", "By measuring the widest part of the pattern and projecting it in the breakout direction", "By looking at the calendar", "By doubling your account size"], "answer": "By measuring the widest part of the pattern and projecting it in the breakout direction"},
+            {"question": "Why use technical price targets?", "options": ["To remove emotional exit decisions and lock in profits objectively", "To guarantee 100% accuracy", "Brokers require target submission", "To pay less commission"], "answer": "To remove emotional exit decisions and lock in profits objectively"},
+            {"question": "What should you do if price stalls halfway to your technical target?", "options": ["Panic sell immediately", "Assess market structure and consider taking partial profits or adjusting stop loss", "Close your brokerage account", "Ignore it completely"], "answer": "Assess market structure and consider taking partial profits or adjusting stop loss"}
+        ]
+}
+
             
