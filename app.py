@@ -161,4 +161,8 @@ lessons_db = {
     "W7L1: MACD (Moving Average Convergence Divergence)": {
         "concept": "Tracking momentum and trend changes using relationship between two exponential moving averages.",
         "questions": [
-            {"question": "What are the components of the MAC
+            {
+    "question": """What are the components of the MAC
+    layer in networking?"""
+            }
+            
