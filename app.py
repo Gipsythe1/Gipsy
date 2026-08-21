@@ -27,7 +27,7 @@ if "completed_lessons" not in st.session_state:
 if "feedback" not in st.session_state:
     st.session_state.feedback = None
 
-# Custom Modern Styling
+# Custom Modern Styling (TradingView / Dark Theme)
 st.markdown("""
     <style>
     .stApp {
@@ -63,7 +63,10 @@ st.markdown("""
 
 # Sidebar Navigation
 st.sidebar.markdown("## TRADE<span style='color: #2962ff;'>X</span>", unsafe_allow_html=True)
-page = st.sidebar.radio("Navigation", ["Dashboard", "Trading Academy (3-Month Roadmap)", "Global Scoreboard", "Markets", "Paper Trading"])
+page = st.sidebar.radio(
+    "Navigation", 
+    ["Dashboard", "Trading Academy (3-Month Roadmap)", "Analytics", "Global Scoreboard", "Markets", "Paper Trading"]
+)
 
 # Sidebar Academy Progress Tracker
 if len(lessons_db) > 0:
@@ -73,6 +76,7 @@ if len(lessons_db) > 0:
     st.sidebar.progress(progress_val)
     st.sidebar.caption(f"{len(st.session_state.completed_lessons)} of {len(lessons_db)} modules completed")
 
+# --- 1. DASHBOARD ---
 if page == "Dashboard":
     st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>WELCOME BACK</p>", unsafe_allow_html=True)
     st.title("Trading Dashboard")
@@ -97,6 +101,7 @@ if page == "Dashboard":
         for asset, price in {"BTC": "$68,420", "ETH": "$3,420", "AAPL": "$227.10", "TSLA": "$341.20"}.items():
             st.markdown(f'<div style="background: #1e222d; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between;"><b>{asset}</b><span style="color: #848e9c;">{price}</span></div>', unsafe_allow_html=True)
 
+# --- 2. TRADING ACADEMY ---
 elif page == "Trading Academy (3-Month Roadmap)":
     st.markdown(f"""
         <div class="duo-stats">
@@ -114,7 +119,7 @@ elif page == "Trading Academy (3-Month Roadmap)":
             is_completed = lesson_name in st.session_state.completed_lessons
             button_label = f"✅ {lesson_name}" if is_completed else lesson_name
             
-            if col.button(button_label, key=f"btn_{i}"):
+            if col.button(button_label, key=f"btn_{i}", use_container_width=True):
                 st.session_state.active_lesson = lesson_name
                 st.session_state.question_index = 0
                 st.session_state.feedback = None
@@ -131,7 +136,6 @@ elif page == "Trading Academy (3-Month Roadmap)":
             
             choice = st.radio("Select an option:", q['options'], key=f"q_{q_idx}")
             
-            # Action controls depending on whether user submitted yet
             if st.session_state.feedback is None:
                 if st.button("Submit Answer", type="primary"):
                     if choice == q['answer']:
@@ -162,6 +166,62 @@ elif page == "Trading Academy (3-Month Roadmap)":
                 st.session_state.active_lesson = None
                 st.rerun()
 
+# --- 3. PERFORMANCE ANALYTICS ---
+elif page == "Analytics":
+    st.markdown("<p style='color: #848e9c; margin-bottom: 0;'>PERFORMANCE METRICS</p>", unsafe_allow_html=True)
+    st.title("Trading Analytics & Win-Rate Breakdown")
+    
+    np.random.seed(42)
+    trade_dates = pd.date_range(start="2026-06-01", periods=20, freq="B")
+    mock_trades = pd.DataFrame({
+        "Date": trade_dates,
+        "Asset": np.random.choice(["BTC", "ETH", "AAPL", "TSLA", "EUR/USD"], size=20),
+        "Type": np.random.choice(["Long", "Short"], size=20),
+        "P&L ($)": np.random.uniform(-150, 350, size=20).round(2),
+        "Return (%)": np.random.uniform(-2.5, 5.0, size=20).round(2)
+    })
+    
+    total_trades = len(mock_trades)
+    winning_trades = len(mock_trades[mock_trades["P&L ($)"] > 0])
+    win_rate = (winning_trades / total_trades) * 100
+    net_profit = mock_trades["P&L ($)"].sum()
+    gross_win = mock_trades[mock_trades["P&L ($)"] > 0]["P&L ($)"].sum()
+    gross_loss = abs(mock_trades[mock_trades["P&L ($)"] < 0]["P&L ($)"].sum())
+    profit_factor = gross_win / gross_loss if gross_loss > 0 else 0
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.markdown(f'<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Win Rate</p><h2 style="margin: 0; color: #ffffff;">{win_rate:.1f}%</h2><span style="color: #089981;">{winning_trades} Wins / {total_trades - winning_trades} Losses</span></div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown(f'<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Net Profit / Loss</p><h2 style="margin: 0; color: { "#089981" if net_profit >= 0 else "#f23645" };">${net_profit:,.2f}</h2><span style="color: #848e9c;">Overall P&L</span></div>', unsafe_allow_html=True)
+    with col3:
+        st.markdown(f'<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Profit Factor</p><h2 style="margin: 0; color: #ffffff;">{profit_factor:.2f}</h2><span style="color: #089981;">Gross Win / Gross Loss</span></div>', unsafe_allow_html=True)
+    with col4:
+        st.markdown(f'<div class="metric-card"><p style="color: #848e9c; margin-bottom: 5px;">Total Trades</p><h2 style="margin: 0; color: #ffffff;">{total_trades}</h2><span style="color: #848e9c;">Executed orders</span></div>', unsafe_allow_html=True)
+
+    st.write("")
+    chart_col1, chart_col2 = st.columns(2)
+    
+    with chart_col1:
+        st.markdown("### Cumulative Equity Curve")
+        mock_trades["Cumulative P&L"] = mock_trades["P&L ($)"].cumsum()
+        st.line_chart(mock_trades.set_index("Date")["Cumulative P&L"], color="#2962ff", height=300)
+        
+    with chart_col2:
+        st.markdown("### P&L Distribution by Asset")
+        asset_summary = mock_trades.groupby("Asset")["P&L ($)"].sum()
+        st.bar_chart(asset_summary, color="#089981", height=300)
+
+    st.markdown("### Recent Trade History")
+    st.dataframe(
+        mock_trades.style.map(
+            lambda v: 'color: #089981' if isinstance(v, (int, float)) and v > 0 else ('color: #f23645' if isinstance(v, (int, float)) and v < 0 else ''),
+            subset=["P&L ($)", "Return (%)"]
+        ),
+        use_container_width=True
+    )
+
+# --- 4. GLOBAL SCOREBOARD ---
 elif page == "Global Scoreboard":
     st.title("Global Scoreboard")
     df = pd.DataFrame({
@@ -172,16 +232,18 @@ elif page == "Global Scoreboard":
     })
     st.table(df)
 
+# --- 5. MARKETS ---
 elif page == "Markets":
     st.title("Market Overview")
     st.write("Real-time market data integration would appear here.")
 
+# --- 6. PAPER TRADING ---
 elif page == "Paper Trading":
     st.title("Paper Trading Simulator")
     st.write("Practice your skills with $10,000 of virtual capital.")
     
     ticker = st.text_input("Enter Ticker", "BTC")
-    amount = st.number_input("Amount", 100, 10000)
-    if st.button("Execute Trade"):
-        st.write(f"Simulated order placed for {amount} of {ticker}")
-            
+    amount = st.number_input("Amount ($)", 100, 10000, value=1000)
+    if st.button("Execute Trade", type="primary"):
+        st.success(f"Simulated order placed successfully for ${amount:,.2f} of {ticker}!")
+                      
