@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from utils.curriculum import lessons_db
+
+# If curriculum.py is in the same folder as app.py:
+from curriculum import lessons_db
 
 
 # Page Configuration
